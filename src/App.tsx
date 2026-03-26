@@ -3,11 +3,9 @@ import { Outlet } from "react-router"
 
 function App() {
   return (
-    <div>
-      <div>
-        <Navbar />
-      </div>
-      <main>
+    <div className="flex-1 flex-col min-h-svh">
+      <Navbar />
+      <main className="flex-1 flex flex-col">
         <Outlet />
       </main>
     </div>
