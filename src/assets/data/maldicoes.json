@@ -1,0 +1,247 @@
+{
+"maldicao": {
+  "aetherideo": {
+    "nome": "Maldição Aetherídeo",
+    "subtitulo": "Aetherídeo",
+    "descricao": "A chegada do minério aetherium mudou Opath para sempre. Pessoas expostas a grandes quantidades foram modificadas, com cristais azulados emergindo em seus corpos. Por isso, são caçados por alquimistas e criaturas mágicas.",
+
+    "habilidadesBase": [
+      {
+        "nome": "Aetherídeo",
+        "efeitos": [
+          {
+            "tipo": "vantagem_contra",
+            "origem": "ataques",
+            "condicao": "magico"
+          }
+        ]
+      },
+      {
+        "nome": "Resistir à Praga",
+        "efeitos": [
+          {
+            "tipo": "vida_extra",
+            "valor_base": 3,
+            "por_nivel": 1
+          }
+        ]
+      }
+    ],
+
+    "habilidades": [
+      {
+        "nome": "Combustível Arcano",
+        "custo": 0,
+        "tipo": "acao",
+        "efeitos": [
+          {
+            "tipo": "troca_recurso",
+            "perda": {
+              "tipo": "vida",
+              "valor": "1d4"
+            },
+            "ganho": {
+              "tipo": "enfase_temporaria",
+              "valor": "igual"
+            }
+          },
+          {
+            "tipo": "escalonamento",
+            "niveis": [
+              { "nivel": 5, "valor": "1d6" },
+              { "nivel": 9, "valor": "1d8" }
+            ]
+          }
+        ],
+        "limite": {
+          "tipo": "descanso",
+          "valor": 1
+        }
+      }
+    ]
+  },
+
+  "gorgon": {
+    "nome": "Maldição Górgon",
+    "subtitulo": "Górgon",
+    "descricao": "Marcados pela maldição das Eríneas, górgons carregam um olhar perigoso e uma existência ligada à petrificação e ao caos emocional.",
+
+    "habilidadesBase": [
+      {
+        "nome": "Górgon",
+        "efeitos": [
+          {
+            "tipo": "condicional_estado",
+            "condicao": "ver_propria_imagem",
+            "efeito": "paralisado",
+            "duracao": "ate_proximo_turno"
+          },
+          {
+            "tipo": "interacao_inimiga",
+            "acao": "mostrar_reflexo",
+            "alcance": 9,
+            "teste": {
+              "atacante": "DES",
+              "defensor": "CON"
+            }
+          }
+        ]
+      },
+      {
+        "nome": "Sangue Verde",
+        "efeitos": [
+          {
+            "tipo": "imunidade",
+            "dano": "venenoso"
+          },
+          {
+            "tipo": "fallback_resistencia",
+            "condicao": "ja_imune",
+            "dano": "acido"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": [
+      {
+        "nome": "Olhar Petrificante",
+        "custo": 2,
+        "tipo": "acao",
+        "alcance": 9,
+        "alvo": "criatura",
+        "ataque": {
+          "tipo": "magico",
+          "defesa": "CON"
+        },
+        "efeitos": [
+          {
+            "tipo": "aplicar_condicao",
+            "condicao": "desorientado",
+            "duracao": "ate_proximo_turno"
+          }
+        ],
+        "propriedades": [
+          {
+            "tipo": "proficiente"
+          }
+        ],
+        "ampliacoes": [
+          {
+            "condicao": "15+",
+            "efeito": "paralisado"
+          },
+          {
+            "condicao": "20+",
+            "efeito": "petrificado",
+            "duracao": "ate_descanso_longo"
+          }
+        ],
+        "limite": {
+          "tipo": "descanso_longo",
+          "valor": 1
+        }
+      }
+    ]
+  },
+
+  "retornado": {
+    "nome": "Maldição Retornado",
+    "subtitulo": "Retornado",
+    "descricao": "Criaturas que enganaram a morte e retornaram como mortos-vivos, carregando tanto fraquezas quanto resistências sobrenaturais.",
+
+    "habilidadesBase": [
+      {
+        "nome": "Retornado",
+        "efeitos": [
+          {
+            "tipo": "desvantagem",
+            "contexto": "teste_morte"
+          },
+          {
+            "tipo": "vulnerabilidade",
+            "dano": "contundente"
+          }
+        ]
+      },
+      {
+        "nome": "Natureza Esquelética",
+        "efeitos": [
+          {
+            "tipo": "imunidade",
+            "dano": "venenoso"
+          },
+          {
+            "tipo": "imunidade_condicao",
+            "condicao": "envenenado"
+          },
+          {
+            "tipo": "ignorar_necessidade",
+            "necessidades": ["comida", "agua"]
+          }
+        ]
+      },
+      {
+        "nome": "Força do Além",
+        "efeitos": [
+          {
+            "tipo": "condicional_recurso",
+            "condicao": "ganhar_vida_temporaria",
+            "custo": {
+              "recurso": "enfase",
+              "valor": 1
+            },
+            "efeito": "dobrar_valor"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": []
+  },
+
+  "sombrio": {
+    "nome": "Maldição Sombrio",
+    "subtitulo": "Sombrio",
+    "descricao": "Descendentes de um pacto sombrio com uma entidade vulcânica, carregando uma ligação direta com a morte e as sombras.",
+
+    "habilidadesBase": [
+      {
+        "nome": "Sombrio",
+        "efeitos": [
+          {
+            "tipo": "falhas_iniciais",
+            "quantidade": 2,
+            "contexto": "teste_morte"
+          },
+          {
+            "tipo": "remover_falha_condicional",
+            "limite": "1_por_nivel"
+          }
+        ]
+      },
+      {
+        "nome": "Visão no Escuro",
+        "efeitos": [
+          {
+            "tipo": "visao_especial",
+            "modo": "escuridao_total"
+          }
+        ]
+      },
+      {
+        "nome": "Presença Sombria",
+        "efeitos": [
+          {
+            "tipo": "desvantagem_contra",
+            "origem": "ataques",
+            "condicao": "primeira_rodada"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": []
+  }
+}
+}

@@ -1,0 +1,1758 @@
+{
+  "legados": {
+    "anuro": {
+      "nome": "Melancolia Anuro",
+      "subtitulo": "O Peso do Coração",
+      "descricao": "Você não entende o valor material das coisas. Para você, tudo se resume aos seus sentimentos e percepções.",
+
+      "atributos": {
+        "idade": "Atingem a maioridade com 6 anéis e vivem até 45.",
+        "deslocamento": 9,
+        "tamanho": "variavel"
+      },
+
+      "habilidadesBase": [
+        {
+          "nome": "Língua Versátil",
+          "efeitos": [
+            {
+              "tipo": "acao_extra",
+              "acao": ["sacar_item", "manipular_item"],
+              "escala": "bonus_proficiencia"
+            }
+          ]
+        },
+        {
+          "nome": "Anfíbio",
+          "efeitos": [
+            { "tipo": "respirar", "valor": ["terra", "agua"] },
+            { "tipo": "proficiencia", "pericia": "preparo_fisico" },
+            { "tipo": "movimento", "modo": "nadar", "valor": "deslocamento" },
+            { "tipo": "ignorar_desvantagem", "contexto": "ataques_submersos" }
+          ]
+        }
+      ],
+
+      "habilidades": [
+        {
+          "nome": "Inflar",
+          "custo": 1,
+          "descritor": ["ANURO", "ASPECTO"],
+          "efeitos": [
+            {
+              "tipo": "vantagem",
+              "atributo": "CAR",
+              "contexto": ["intimidacao", "persuasao"]
+            },
+            {
+              "tipo": "mod_alcance",
+              "valor": 1.5,
+              "unidade": "m"
+            }
+          ]
+        },
+        {
+          "nome": "Produzir Soro",
+          "custo": 1,
+          "descritor": ["ANURO"],
+          "efeitos": [
+            { "tipo": "remover_condicao", "condicao": "envenenado" },
+            { "tipo": "reduzir_doenca", "valor": 1 }
+          ]
+        }
+      ],
+
+      "herancas": [
+        {
+          "nome": "Bufonin",
+          "passivos": [
+            {
+              "nome": "Corpo Forte",
+              "efeitos": [
+                { "tipo": "tamanho", "valor": "medio" },
+                { "tipo": "bonus_salto", "valor": 3 }
+              ]
+            },
+            {
+              "nome": "Corpo Inflável",
+              "efeitos": [
+                { "tipo": "liberar_habilidade", "habilidade": "Inflar" }
+              ]
+            }
+          ],
+          "modificadores": [
+            {
+              "habilidade": "Inflar",
+              "efeitos": [
+                { "tipo": "add_alcance", "valor": 1.5 }
+              ]
+            }
+          ]
+        },
+        {
+          "nome": "Ranin",
+          "passivos": [
+            {
+              "nome": "Corpo Ágil",
+              "efeitos": [
+                { "tipo": "tamanho", "valor": "pequeno" },
+                { "tipo": "movimento", "modo": "escalar", "valor": 9 }
+              ]
+            },
+            {
+              "nome": "Pele Venenosa",
+              "efeitos": [
+                { "tipo": "resistencia", "dano": "venenoso" }
+              ]
+            },
+            {
+              "nome": "Catalisador Epidérmico",
+              "efeitos": [
+                { "tipo": "liberar_habilidade", "habilidade": "Produzir Soro" }
+              ]
+            }
+          ],
+          "modificadores": []
+        }
+      ]
+    },
+
+    "draco": {
+      "nome": "Melancolia Draco",
+      "subtitulo": "Sede por Poder",
+      "descricao": "Você é ganancioso e busca poder a qualquer custo.",
+
+      "atributos": {
+        "idade": "Maturidade aos 14 anéis, sem limite conhecido.",
+        "deslocamento": 9,
+        "tamanho": "medio"
+      },
+
+      "habilidadesBase": [
+        {
+          "nome": "Sangue Dracônico",
+          "efeitos": [
+            { "tipo": "idioma", "valor": "draconico" },
+            { "tipo": "liberar_habilidade", "habilidade": "Sopro Dracônico" }
+          ]
+        },
+        {
+          "nome": "Armas Dracônicas",
+          "efeitos": [
+            {
+              "tipo": "ataque_natural",
+              "dano": "1d6",
+              "propriedades": ["arma", "leve", "superior"]
+            }
+          ]
+        }
+      ],
+
+      "habilidades": [
+        {
+          "nome": "Sopro Dracônico",
+          "custo": 2,
+          "descritor": ["DRACO", "ATAQUE", "MÁGICO", "ELEMENTAL"],
+          "area": { "tipo": "cone", "tamanho": 3 },
+          "efeitos": [
+            { "tipo": "dano", "valor": "2d6", "elemento": "heranca" }
+          ],
+          "falha": { "tipo": "metade_dano" },
+          "escala": [
+            { "nivel": 6, "efeitos": [{ "tipo": "set_dano", "valor": "3d6" }] },
+            { "nivel": 11, "efeitos": [{ "tipo": "set_dano", "valor": "4d6" }] }
+          ]
+        }
+      ],
+
+      "herancas": [
+        {
+          "nome": "Escamas Azuis",
+          "passivos": [
+            {
+              "nome": "Sangue Elétrico",
+              "efeitos": [
+                { "tipo": "resistencia", "dano": "eletrico" }
+              ]
+            },
+            {
+              "nome": "Arcanum de Fofuxa",
+              "efeitos": [
+                { "tipo": "truque_magico", "quantidade": 1 }
+              ]
+            }
+          ],
+          "modificadores": [
+            {
+              "habilidade": "Sopro Dracônico",
+              "efeitos": [
+                { "tipo": "add_dano", "valor": "1d6" },
+                { "tipo": "alterar_elemento", "valor": "eletrico" },
+                {
+                  "tipo": "efeito_extra",
+                  "efeito": "reposicionar_alvo",
+                  "distancia": 1.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "elfe": {
+  "nome": "Melancolia Elfe",
+  "subtitulo": "Capricho Compulsivo",
+  "descricao": "Existe algo, físico ou conceitual, que você considera o belo acima de tudo e precisa consumi-lo.",
+
+  "atributos": {
+    "idade": "Atingem a maturidade com 22 anéis e vivem até 250.",
+    "deslocamento": 9,
+    "tamanho": "medio"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Adaptável",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia",
+          "quantidade": 2,
+          "categoria": "pericia"
+        },
+        {
+          "tipo": "vantagem_condicional",
+          "recurso": "catarse",
+          "contexto": "pericias_escolhidas"
+        }
+      ]
+    },
+    {
+      "nome": "Meditação",
+      "efeitos": [
+        {
+          "tipo": "reduzir_descanso",
+          "descanso": "longo",
+          "horas": 4
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [],
+
+  "herancas": [
+    {
+      "nome": "Corte do Verão",
+      "passivos": [
+        {
+          "nome": "Procedimento Arcano",
+          "efeitos": [
+            {
+              "tipo": "aprender_truque",
+              "quantidade": 1
+            },
+            {
+              "tipo": "aprender_magia",
+              "nivel": "superficial",
+              "custo": "normal"
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    },
+
+    {
+      "nome": "Corte do Outono",
+      "passivos": [
+        {
+          "nome": "Conexão Marítima",
+          "efeitos": [
+            { "tipo": "respirar", "valor": ["terra", "agua"] },
+            { "tipo": "movimento", "modo": "nadar", "valor": 9 },
+            { "tipo": "ignorar_desvantagem", "contexto": "ataques_submersos" }
+          ]
+        },
+        {
+          "nome": "Presente Oceânico",
+          "efeitos": [
+            {
+              "tipo": "escolher_item",
+              "categoria": "arma",
+              "subtipo": "simples_ou_marcial",
+              "material": "nacar",
+              "quantidade": 1
+            },
+            {
+              "tipo": "progressao_item",
+              "nivel": 5,
+              "categoria": "armadura",
+              "quantidade": 1
+            },
+            {
+              "tipo": "progressao_item",
+              "nivel": 9,
+              "categoria": "arma",
+              "quantidade": 1
+            },
+            {
+              "tipo": "trocar_item",
+              "gatilho": "inicio_arco",
+              "restricao": "mesma_categoria"
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    },
+
+    {
+      "nome": "Corte do Inverno",
+      "passivos": [
+        {
+          "nome": "Estilo Marcial",
+          "efeitos": [
+            {
+              "tipo": "aprender_estilo_combate",
+              "classe": "combatente",
+              "quantidade": 1
+            },
+            {
+              "tipo": "proficiencia",
+              "categoria": "arma_marcial",
+              "quantidade": 2
+            },
+            {
+              "tipo": "fallback_proficiencia",
+              "condicao": "ja_proficiente",
+              "alternativa": "arma_regional",
+              "quantidade": 1
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    },
+
+    {
+      "nome": "Corte da Primavera",
+      "passivos": [
+        {
+          "nome": "Pele de Casca",
+          "efeitos": [
+            {
+              "tipo": "bonus_defesa",
+              "categoria": "fisica",
+              "valor": 1
+            }
+          ]
+        },
+        {
+          "nome": "Conexão com o Ambiente",
+          "efeitos": [
+            {
+              "tipo": "resistencia",
+              "dano": "especial_ambiente"
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    },
+
+    {
+      "nome": "Sem Corte",
+      "passivos": [
+        {
+          "nome": "Graça Titânica",
+          "efeitos": [
+            {
+              "tipo": "mod_deslocamento",
+              "valor": 1.5
+            },
+            {
+              "tipo": "vantagem",
+              "contexto": "equilibrio"
+            }
+          ]
+        },
+        {
+          "nome": "Treinamento do Povo Comum",
+          "efeitos": [
+            {
+              "tipo": "escolha_proficiencia",
+              "quantidade": 2,
+              "categoria": "aptidao"
+            },
+            {
+              "tipo": "escolha_proficiencia",
+              "quantidade": 1,
+              "categoria": ["arma_regional", "armadura_leve"]
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    }
+  ]
+},
+
+"gnomo": {
+  "nome": "Melancolia Gnomo",
+  "subtitulo": "Gula Fútil",
+  "descricao": "Você possui uma compulsão por acumular algo específico, podendo se perder nisso e se tornar cada vez mais animalesco.",
+
+  "atributos": {
+    "idade": "Atingem maturidade aos 40 anéis e vivem mais de 350.",
+    "deslocamento": 7.5,
+    "tamanho": "pequeno"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Fala Animal",
+      "efeitos": [
+        {
+          "tipo": "comunicacao",
+          "alvo": "animais_pequenos",
+          "modo": "inteligente_limitado"
+        },
+        {
+          "tipo": "bonus_sucesso",
+          "contexto": "interacao_animais",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Companheiro Ânima",
+      "efeitos": [
+        {
+          "tipo": "invocar_companheiro",
+          "nome": "anima",
+          "visibilidade": "apenas_gnomos",
+          "alcance_max": 1.5,
+          "atravessavel": true,
+          "invulneravel": true,
+          "requer_visao": true
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [
+    {
+      "nome": "Caça Predatória",
+      "custo": 1,
+      "descritor": ["GNOMO", "MOVIMENTO"],
+      "efeitos": [
+        {
+          "tipo": "movimento_direcionado",
+          "valor": "metade_deslocamento",
+          "direcao": "inimigo_visivel"
+        },
+        {
+          "tipo": "ataque_extra_condicional",
+          "condicao": "adjacente_apos_movimento",
+          "acao": "ataque_corpo_a_corpo"
+        }
+      ]
+    }
+  ],
+
+  "herancas": [
+    {
+      "nome": "Sistema de Ânima",
+      "tipo": "combinavel",
+
+      "regras": {
+        "maiores": 2,
+        "menores": 2,
+        "alternativa": "2_maiores"
+      },
+
+      "opcoes": {
+        "maiores": [
+          {
+            "nome": "Predador",
+            "passivos": [
+              {
+                "nome": "Instinto de Caça",
+                "efeitos": [
+                  {
+                    "tipo": "liberar_habilidade",
+                    "habilidade": "Caça Predatória"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "nome": "Dentes Afiados",
+            "passivos": [
+              {
+                "nome": "Arma Natural",
+                "efeitos": [
+                  {
+                    "tipo": "ataque_natural",
+                    "dano": "1d6",
+                    "dano_tipo": "perfurante",
+                    "propriedades": ["arma", "leve", "letal"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "nome": "Couraça",
+            "passivos": [
+              {
+                "nome": "Pele Endurecida",
+                "efeitos": [
+                  {
+                    "tipo": "reducao_dano",
+                    "valor": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+
+        "menores": [
+          {
+            "nome": "Corredor",
+            "passivos": [
+              {
+                "efeitos": [
+                  {
+                    "tipo": "mod_deslocamento",
+                    "valor": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "nome": "Camuflagem",
+            "passivos": [
+              {
+                "efeitos": [
+                  {
+                    "tipo": "vantagem",
+                    "contexto": "furtividade"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "nome": "Escalador",
+            "passivos": [
+              {
+                "efeitos": [
+                  {
+                    "tipo": "movimento",
+                    "modo": "escalar",
+                    "valor": "deslocamento"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "nome": "Membros Alongados",
+            "passivos": [
+              {
+                "efeitos": [
+                  {
+                    "tipo": "permitir_acao",
+                    "acao": "agarrar",
+                    "tamanho_max": "grande"
+                  },
+                  {
+                    "tipo": "add_dano_condicional",
+                    "condicao": "alvo_agarrado",
+                    "valor": "1d6"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "nome": "Oportunista",
+            "passivos": [
+              {
+                "efeitos": [
+                  {
+                    "tipo": "vantagem",
+                    "contexto": "ataques_reacao"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"humani": {
+  "nome": "Melancolia Herdada",
+  "subtitulo": "Definida pela Herança",
+  "descricao": "Diferente de outros legados, a sua melancolia é determinada pela herança que você carrega.",
+
+  "atributos": {
+    "idade": "Atingem maturidade aos 24 anéis e vivem até 120.",
+    "deslocamento": 9,
+    "tamanho": "medio"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Tradição Oral",
+      "efeitos": [
+        {
+          "tipo": "memoria_ilimitada",
+          "condicao": "informacao_oral"
+        },
+        {
+          "tipo": "vantagem",
+          "contexto": "testes_int_memoria"
+        },
+        {
+          "tipo": "condicional_sucesso",
+          "condicao": "sucesso_teste",
+          "efeito": "informacao_compartilhada"
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [
+    {
+      "nome": "Mortalha Energizante",
+      "custo": 0,
+      "descritor": ["HUMANI"],
+      "gatilho": "criatura_morre_ate_9m",
+      "alcance": "pessoal",
+      "duracao": "instantanea",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_temporario",
+          "recurso": "enfase",
+          "valor": "bonus_proficiencia"
+        }
+      ],
+      "limite": {
+        "tipo": "descanso",
+        "valor": 1
+      }
+    }
+  ],
+
+  "herancas": [
+    {
+      "nome": "Escolha de Melancolia",
+      "tipo": "exclusiva",
+
+      "opcoes": [
+        {
+          "nome": "Mortalha",
+          "passivos": [
+            {
+              "nome": "A Morte é Minha Companheira",
+              "efeitos": [
+                {
+                  "tipo": "pre_roll",
+                  "dado": "d20",
+                  "quantidade": 3,
+                  "condicao": "resultado_menor_10"
+                },
+                {
+                  "tipo": "substituir_rolagem",
+                  "contexto": "teste_morte",
+                  "ordem": "sequencial"
+                },
+                {
+                  "tipo": "bloquear_modificadores",
+                  "contexto": "teste_morte"
+                }
+              ]
+            },
+            {
+              "nome": "Afinidade com a Morte",
+              "efeitos": [
+                {
+                  "tipo": "liberar_habilidade",
+                  "habilidade": "Mortalha Energizante"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "nome": "Maresia",
+          "passivos": [
+            {
+              "nome": "Lobo do Mar",
+              "efeitos": [
+                {
+                  "tipo": "proficiencia",
+                  "pericia": "navegacao_aquatica"
+                },
+                {
+                  "tipo": "acao_livre",
+                  "contexto": "teste_navegacao"
+                },
+                {
+                  "tipo": "turno_extra",
+                  "contexto": ["mar", "agua_corrente", "navegacao"]
+                }
+              ]
+            },
+            {
+              "nome": "Maúna Maior",
+              "efeitos": [
+                {
+                  "tipo": "escolha_talento",
+                  "categoria": "mauna_humani"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+"kishin": {
+  "nome": "Melancolia Kishin",
+  "subtitulo": "Fúria em Chamas",
+  "descricao": "Criado pela deusa da Fúria, seu temperamento pode consumi-lo como o fogo que carrega.",
+
+  "atributos": {
+    "idade": "Atingem maturidade aos 30 anéis e vivem até 330.",
+    "deslocamento": 9,
+    "tamanho": "medio"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Cólera Ardente",
+      "efeitos": [
+        {
+          "tipo": "condicional_modificador",
+          "condicao": "estado_machucado",
+          "modificador": {
+            "tipo": "gasto_pe",
+            "valor": 1,
+            "efeito": {
+              "tipo": "add_dano",
+              "valor": "1d6"
+            }
+          }
+        },
+        {
+          "tipo": "evolucao_nivel",
+          "nivel": 5,
+          "efeito": {
+            "tipo": "remover_limite_uso"
+          }
+        }
+      ]
+    },
+
+    {
+      "nome": "Arma d'A Ordem",
+      "efeitos": [
+        {
+          "tipo": "escolha",
+          "opcoes": [
+            {
+              "tipo": "proficiencia",
+              "armas": "marciais",
+              "quantidade": 2
+            },
+            {
+              "tipo": "proficiencia",
+              "categoria": ["armadura_leve", "escudo"]
+            },
+            {
+              "tipo": "proficiencia",
+              "categoria": "arma_regional",
+              "quantidade": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [
+    {
+      "nome": "Cinzas Restauradoras",
+      "custo": 2,
+      "descritor": ["KISHIN", "CURA"],
+      "gatilho": "criatura_morre_ate_6m",
+      "alcance": 6,
+      "alvo": "criatura",
+      "duracao": "instantanea",
+      "efeitos": [
+        {
+          "tipo": "cura",
+          "valor": "2d6"
+        },
+        {
+          "tipo": "progressao_nivel",
+          "escala": [
+            { "nivel": 5, "valor": "3d6" },
+            { "nivel": 9, "valor": "4d6" }
+          ]
+        }
+      ],
+      "limite": {
+        "tipo": "por_alvo",
+        "valor": 1,
+        "janela": "cena"
+      }
+    },
+
+    {
+      "nome": "Marcar para Proteger",
+      "custo": 1,
+      "descritor": ["KISHIN", "MARCA"],
+      "alcance": 6,
+      "alvo": "criatura",
+      "duracao": "ate_proximo_turno",
+      "efeitos": [
+        {
+          "tipo": "aplicar_condicao",
+          "condicoes": ["provocada", "marcada"]
+        }
+      ]
+    },
+
+    {
+      "nome": "Liderar por Exemplo",
+      "custo": 1,
+      "descritor": ["KISHIN", "INSPIRACAO", "VOZ"],
+      "alcance": 9,
+      "alvo": "multiplos",
+      "duracao": "ate_proximo_turno",
+      "efeitos": [
+        {
+          "tipo": "aplicar_condicao",
+          "condicao": "inspirado"
+        },
+        {
+          "tipo": "buff_condicional",
+          "condicao": "inspirado",
+          "efeito": {
+            "tipo": "vantagem",
+            "contexto": "atributo_escolhido",
+            "excecao": "ataques"
+          }
+        }
+      ]
+    }
+  ],
+
+  "herancas": [
+    {
+      "nome": "Família Kishin",
+      "tipo": "exclusiva",
+
+      "opcoes": [
+        {
+          "nome": "Fênix",
+          "passivos": [
+            {
+              "nome": "Resistência Espiritual",
+              "efeitos": [
+                {
+                  "tipo": "resistencia",
+                  "dano": ["necrotico", "radiante"]
+                }
+              ]
+            },
+            {
+              "nome": "Afinidade com a Ressurreição",
+              "efeitos": [
+                {
+                  "tipo": "liberar_habilidade",
+                  "habilidade": "Cinzas Restauradoras"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "nome": "Gárgula",
+          "passivos": [
+            {
+              "nome": "Magiprotetor",
+              "efeitos": [
+                {
+                  "tipo": "ignorar_penalidade",
+                  "contexto": "conjurar_magia_armadura"
+                }
+              ]
+            },
+            {
+              "nome": "Guardião Marcador",
+              "efeitos": [
+                {
+                  "tipo": "estender_condicao",
+                  "condicao": "provocada",
+                  "duracao": "proximo_turno"
+                },
+                {
+                  "tipo": "liberar_habilidade",
+                  "habilidade": "Marcar para Proteger"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "nome": "Hipocampo",
+          "passivos": [
+            {
+              "nome": "Conhecimento Arcano Elevado",
+              "efeitos": [
+                {
+                  "tipo": "proficiencia",
+                  "pericia": "arcanismo"
+                },
+                {
+                  "tipo": "expertise",
+                  "pericia": "arcanismo"
+                }
+              ]
+            },
+            {
+              "nome": "Marca Arcana",
+              "efeitos": [
+                {
+                  "tipo": "aprender_truque",
+                  "quantidade": 1
+                },
+                {
+                  "tipo": "modificador_magia",
+                  "condicao": "truque_ataque",
+                  "modificador": {
+                    "tipo": "gasto_pe",
+                    "valor": 1,
+                    "efeito": {
+                      "tipo": "alterar_dano",
+                      "novo_tipo": "energetico"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "nome": "Grifo",
+          "passivos": [
+            {
+              "nome": "Renegociar",
+              "efeitos": [
+                {
+                  "tipo": "vantagem",
+                  "contexto": "interacao_social_falha_previa"
+                }
+              ]
+            },
+            {
+              "nome": "Liderança",
+              "efeitos": [
+                {
+                  "tipo": "liberar_habilidade",
+                  "habilidade": "Liderar por Exemplo"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "nome": "Corvo",
+          "passivos": [
+            {
+              "nome": "Segredos Guardados",
+              "efeitos": [
+                {
+                  "tipo": "escolha_limitada",
+                  "quantidade": 2,
+                  "nao_repetir": true,
+                  "janela": "arco",
+                  "opcoes": [
+                    "magia_superficial",
+                    "2_truques",
+                    "proficiencia_pericia",
+                    "proficiencia_protecao",
+                    "proficiencia_arma_regional",
+                    "proficiencia_arma_fogo"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+"sanguir": {
+  "nome": "Melancolia Sanguir",
+  "subtitulo": "Persona Non Grata",
+  "descricao": "Você precisa ser convidado para entrar em propriedades alheias, salvo se possuir algo seu no local.",
+
+  "atributos": {
+    "idade": "Atingem maturidade aos 30 anéis e vivem mais de 200.",
+    "deslocamento": 9,
+    "tamanho": "medio"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Persona Non Grata",
+      "efeitos": [
+        {
+          "tipo": "restricao_movimento",
+          "condicao": "propriedade_terceiros",
+          "excecoes": [
+            "convidado",
+            "objeto_pessoal_presente"
+          ]
+        }
+      ]
+    },
+
+    {
+      "nome": "Sangue Maldito",
+      "efeitos": [
+        {
+          "tipo": "resistencia",
+          "dano": ["acido", "necrotico"]
+        },
+        {
+          "tipo": "acao_especial",
+          "nome": "Alimentar-se",
+          "tempo": "1_minuto",
+          "alvo": "humanoide",
+          "efeitos": [
+            {
+              "tipo": "cura_condicional",
+              "base": "restauracao_menor"
+            },
+            {
+              "tipo": "vida_temporaria",
+              "valor": 5
+            },
+            {
+              "tipo": "debuff_alvo",
+              "efeito": {
+                "tipo": "desvantagem",
+                "contexto": "todos_testes"
+              },
+              "duracao": "24h"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [
+    {
+      "nome": "Modificar com Sangue",
+      "custo": 1,
+      "descritor": ["SANGUIR"],
+      "alcance": "toque",
+      "alvo": "arma",
+      "duracao": "cena",
+      "efeitos": [
+        {
+          "tipo": "adicionar_descritor_equipamento",
+          "escolha": true
+        }
+      ],
+      "limite": {
+        "tipo": "cena",
+        "valor": 1
+      }
+    },
+
+    {
+      "nome": "Finalizar a Caçada",
+      "custo": 1,
+      "descritor": ["SANGUIR"],
+      "alcance": "pessoal",
+      "alvo": "self",
+      "duracao": "ate_proximo_turno",
+      "condicoes_uso": [
+        "estado_machucado"
+      ],
+      "efeitos": [
+        {
+          "tipo": "vantagem",
+          "contexto": "ataques"
+        }
+      ]
+    }
+  ],
+
+  "herancas": [
+    {
+      "nome": "Linagem Sanguir",
+      "tipo": "exclusiva",
+
+      "opcoes": [
+        {
+          "nome": "Byotr",
+          "passivos": [
+            {
+              "nome": "Alquimia de Vitae",
+              "efeitos": [
+                {
+                  "tipo": "liberar_habilidade",
+                  "habilidade": "Modificar com Sangue"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "nome": "Shtarik",
+          "passivos": [
+            {
+              "nome": "Superpredador",
+              "efeitos": [
+                {
+                  "tipo": "vantagem",
+                  "contexto": "interacoes_alvo_ferido",
+                  "excecao": "ataques"
+                }
+              ]
+            },
+            {
+              "nome": "Predador Calejado",
+              "efeitos": [
+                {
+                  "tipo": "liberar_habilidade",
+                  "habilidade": "Finalizar a Caçada"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+"tatsunoko": {
+  "nome": "Melancolia Tatsunoko",
+  "subtitulo": "Testemunha do Esquecimento",
+  "descricao": "Não importa o tamanho de suas ações e feitos, seu nome estará fadado ao esquecimento. Não importa o quanto você tente participar da história, você está destinado ao segundo plano. Você deverá testemunhar a mudança, independente do tamanho de suas ações.",
+
+  "atributos": {
+    "idade": "Atingem a maturidade com 8 anéis e não se sabe até quantos podem viver.",
+    "deslocamento": 7.5,
+    "tamanho": "pequeno"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Esquecimento Momentâneo",
+      "efeitos": [
+        {
+          "tipo": "condicional_estado",
+          "condicao": "atividade_cotidiana_2_rodadas",
+          "efeito": {
+            "tipo": "invisibilidade_social",
+            "descricao": "Criaturas veem, mas esquecem sua presença"
+          }
+        },
+        {
+          "tipo": "quebra_condicao",
+          "gatilho": "acao_ofensiva"
+        },
+        {
+          "tipo": "efeito_apos_quebra",
+          "condicao": "teste_oposto",
+          "teste": {
+            "atacante": "DES",
+            "defensor": "SAB"
+          },
+          "sucesso": {
+            "tipo": "aplicar_condicao",
+            "condicao": "desorientado"
+          }
+        }
+      ]
+    },
+    {
+      "nome": "Um Oitavo de Forma Dracônica",
+      "efeitos": [
+        {
+          "tipo": "imunidade",
+          "condicao": "amedrontado"
+        },
+        {
+          "tipo": "desvantagem_contra",
+          "origem": "ataques",
+          "descritor": "medo"
+        }
+      ]
+    },
+    {
+      "nome": "Rede de Contatos da Kobo",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia",
+          "quantidade": 1,
+          "categoria": "pericia"
+        },
+        {
+          "tipo": "vantagem_temporaria",
+          "duracao": "arco",
+          "contexto": "pericia_escolhida"
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [],
+
+  "herancas": [
+    {
+      "nome": "Herança Cromática",
+      "passivos": [
+        {
+          "nome": "Servo Elemental",
+          "efeitos": [
+            {
+              "tipo": "escolha_resistencia",
+              "opcoes": ["acido", "eletrico", "gelido", "igneo"]
+            }
+          ]
+        },
+        {
+          "nome": "Mini Guerreiro Dracônico",
+          "efeitos": [
+            {
+              "tipo": "modificar_descritor_ataque",
+              "condicao": "descritor_leve",
+              "adicionar": "letal"
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    },
+
+    {
+      "nome": "Herança Metálica",
+      "passivos": [
+        {
+          "nome": "Escudo e Escamas",
+          "efeitos": [
+            {
+              "tipo": "proficiencia",
+              "categoria": ["escudo_leve", "escudo_pesado"]
+            },
+            {
+              "tipo": "converter_item",
+              "item": "escudo",
+              "novo_tipo": "arma_simples"
+            },
+            {
+              "tipo": "add_descritor",
+              "item": "escudo",
+              "descritor": "versatil",
+              "valores": {
+                "leve": "1d8",
+                "pesado": "1d10"
+              }
+            },
+            {
+              "tipo": "permitir_ataque",
+              "restricao_tamanho": "+2"
+            }
+          ]
+        }
+      ],
+      "modificadores": [
+        {
+          "habilidade": "ATAQUES",
+          "condicao": [
+            "usar_escudo",
+            "descritor_leve",
+            "descritor_elemental"
+          ],
+          "efeitos": [
+            {
+              "tipo": "bonus_reducao",
+              "valor": 2,
+              "duracao": "ate_proximo_turno"
+            }
+          ],
+          "limite": {
+            "tipo": "rodada",
+            "valor": 1
+          }
+        }
+      ]
+    },
+
+    {
+      "nome": "Herança Mineral",
+      "passivos": [
+        {
+          "nome": "Agir para não Reagir",
+          "efeitos": [
+            {
+              "tipo": "proficiencia",
+              "pericia": "percepcao"
+            },
+            {
+              "tipo": "dano_extra_condicional",
+              "condicao": "primeiro_turno",
+              "valor": "1d6"
+            }
+          ]
+        },
+        {
+          "nome": "Arbitrar e Julgar",
+          "efeitos": [
+            {
+              "tipo": "vantagem",
+              "contexto": "determinar_verdade"
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    }
+  ]
+},
+
+"tora": {
+  "nome": "Melancolia Tôra",
+  "subtitulo": "Do Pó ao Pó",
+  "descricao": "Tudo que você cultiva, constrói e se orgulha se tornará pó.",
+
+  "atributos": {
+    "idade": "Atingem a maioridade com 22 anéis e não se sabe quantos podem viver.",
+    "deslocamento": 7.5,
+    "tamanho": "medio"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Resiliência da Mãe Terra",
+      "efeitos": [
+        {
+          "tipo": "desvantagem_contra",
+          "origem": "ataques",
+          "alvos": ["FOR", "CON"]
+        },
+        {
+          "tipo": "vida_extra",
+          "valor_base": 3,
+          "por_nivel": 1
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [],
+
+  "herancas": [
+    {
+      "nome": "Noatorenho",
+      "passivos": [
+        {
+          "nome": "Caminho das Pedras",
+          "efeitos": [
+            {
+              "tipo": "proficiencia",
+              "categoria": ["armadura_leve", "armadura_pesada"]
+            },
+            {
+              "tipo": "ignorar_restricao",
+              "contexto": "magia_com_armadura"
+            }
+          ]
+        }
+      ],
+      "modificadores": [],
+      "habilidades": [
+        {
+          "nome": "Teimosia",
+          "custo": 2,
+          "tipo": "reacao",
+          "gatilho": "falhar_teste",
+          "efeitos": [
+            {
+              "tipo": "repetir_teste"
+            }
+          ],
+          "limite": {
+            "tipo": "descanso",
+            "valor": 1
+          }
+        }
+      ]
+    },
+
+    {
+      "nome": "Törmundiano",
+      "passivos": [
+        {
+          "nome": "Toque da Ruína",
+          "efeitos": [
+            {
+              "tipo": "bonus_dano",
+              "condicao": ["objeto", "construto"],
+              "valor": "bonus_proficiencia"
+            },
+            {
+              "tipo": "ignorar_reducao",
+              "condicao": ["ataque_desarmado", "magia_toque"]
+            }
+          ]
+        },
+        {
+          "nome": "Lamber as Feridas",
+          "efeitos": [
+            {
+              "tipo": "minimo_dado_vida",
+              "valor": 4
+            },
+            {
+              "tipo": "recuperar_recurso",
+              "recurso": "enfase",
+              "valor_por_dado": 1
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    }
+  ]
+},
+
+"urodelo": {
+  "nome": "Melancolia Urodelo",
+  "subtitulo": "Guarda Eterna",
+  "descricao": "Você dedica sua breve vida a proteger algo ou alguém. Enquanto desviar seu caminho desse objetivo, seu corpo começa a secar lentamente até sua inevitável morte.",
+
+  "atributos": {
+    "idade": "Atingem a maioridade com 3 anéis e vivem até 190 anéis.",
+    "deslocamento": 9,
+    "tamanho": "pequeno"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Em Guarda Constante",
+      "efeitos": [
+        {
+          "tipo": "aprender_magia",
+          "magias": ["barreira_de_protecao", "alarme"]
+        },
+        {
+          "tipo": "proficiencia",
+          "categoria": ["armas_de_fogo"]
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [
+    {
+      "nome": "Regenerar Ferimentos",
+      "custo": 2,
+      "tipo": "reacao",
+      "gatilho": "ficar_machucado",
+      "efeitos": [
+        {
+          "tipo": "cura",
+          "formula": "d6 * bonus_proficiencia"
+        }
+      ],
+      "limite": {
+        "tipo": "descanso",
+        "valor": 1
+      }
+    }
+  ],
+
+  "herancas": [
+    {
+      "nome": "Herança Ácida",
+      "passivos": [
+        {
+          "nome": "Coração Ácido",
+          "efeitos": [
+            {
+              "tipo": "resistencia",
+              "dano": "acido"
+            }
+          ]
+        }
+      ],
+      "modificadores": [
+        {
+          "habilidade": "Regenerar Ferimentos",
+          "custo_extra": 1,
+          "efeitos": [
+            {
+              "tipo": "proximo_ataque",
+              "modificacao": "ignorar_reducao"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "nome": "Herança Elétrica",
+      "passivos": [
+        {
+          "nome": "Coração Elétrico",
+          "efeitos": [
+            {
+              "tipo": "resistencia",
+              "dano": "eletrico"
+            }
+          ]
+        }
+      ],
+      "modificadores": [
+        {
+          "habilidade": "Regenerar Ferimentos",
+          "custo_extra": 1,
+          "efeitos": [
+            {
+              "tipo": "proximo_ataque",
+              "dano_extra": "1d12",
+              "tipo_dano": "eletrico"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "nome": "Herança Gélida",
+      "passivos": [
+        {
+          "nome": "Coração Gélido",
+          "efeitos": [
+            {
+              "tipo": "resistencia",
+              "dano": "gelido"
+            }
+          ]
+        }
+      ],
+      "modificadores": [
+        {
+          "habilidade": "Regenerar Ferimentos",
+          "custo_extra": 1,
+          "efeitos": [
+            {
+              "tipo": "proximo_ataque",
+              "efeito": "reduzir_deslocamento_0"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "nome": "Herança Ígnea",
+      "passivos": [
+        {
+          "nome": "Sangue Ígneo",
+          "efeitos": [
+            {
+              "tipo": "resistencia",
+              "dano": "igneo"
+            }
+          ]
+        }
+      ],
+      "modificadores": [
+        {
+          "habilidade": "Regenerar Ferimentos",
+          "custo_extra": 1,
+          "efeitos": [
+            {
+              "tipo": "proximo_ataque",
+              "aplicar_condicao": "em_chamas"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+"walshie": {
+  "nome": "Melancolia Walshie",
+  "subtitulo": "Prisioneiro de Si",
+  "descricao": "Você não consegue abrir portas pelo lado de dentro. Algumas portas são físicas, outras um pouco mais complexas.",
+
+  "atributos": {
+    "idade": "Tornam-se adultos com 16 anéis e vivem em torno de 100 anéis.",
+    "deslocamento": 7.5,
+    "tamanho": "pequeno"
+  },
+
+  "habilidadesBase": [
+    {
+      "nome": "Acredite! é Minha Sorte!",
+      "efeitos": [
+        {
+          "tipo": "rerrolar_condicional",
+          "condicao": "resultado_1",
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "nome": "Sortudo (ou Azarado)",
+      "efeitos": [
+        {
+          "tipo": "gastar_recurso",
+          "recurso": "enfase",
+          "custo": 1,
+          "acao": "rerrolar_teste"
+        },
+        {
+          "tipo": "custo_adicional_condicional",
+          "condicao": "falha",
+          "recurso": "enfase",
+          "custo": 1
+        },
+        {
+          "tipo": "restricao",
+          "condicao": "enfase_minimo",
+          "valor": 2
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [],
+
+  "herancas": [
+    {
+      "nome": "Alpaqueira",
+      "passivos": [
+        {
+          "nome": "Alpavaleiro",
+          "efeitos": [
+            {
+              "tipo": "condicional_beneficio",
+              "condicao": "montado_camelideo",
+              "beneficio": "estilo_combate_montado"
+            },
+            {
+              "tipo": "substituicao_escolha",
+              "condicao": "possuir_estilo",
+              "opcoes": ["talento_walshie", "talento_combatente"]
+            }
+          ]
+        }
+      ],
+      "modificadores": [],
+      "habilidades": [
+        {
+          "nome": "Cuspir como uma Alpaca",
+          "custo": 1,
+          "tipo": "acao",
+          "alcance": 3,
+          "alvo": "criatura",
+          "ataque": {
+            "tipo": "magico",
+            "defesa": "DES"
+          },
+          "efeitos": [
+            {
+              "tipo": "dano",
+              "valor": "1d6",
+              "dano_tipo": "acido"
+            },
+            {
+              "tipo": "aplicar_condicao",
+              "condicao": "desorientado",
+              "duracao": "ate_proximo_turno_ou_dano"
+            }
+          ],
+          "propriedades": [
+            {
+              "tipo": "proficiente"
+            }
+          ],
+          "limite": {
+            "tipo": "cena",
+            "valor": 1,
+            "por_alvo": true
+          }
+        }
+      ]
+    },
+
+    {
+      "nome": "Devastadora",
+      "passivos": [
+        {
+          "nome": "Intrépido",
+          "efeitos": [
+            {
+              "tipo": "bonus_deslocamento",
+              "valor": 1.5
+            },
+            {
+              "tipo": "ignorar_terreno",
+              "tipo_terreno": "dificil_nao_magico"
+            }
+          ]
+        },
+        {
+          "nome": "Destruidor de Joelhos",
+          "efeitos": [
+            {
+              "tipo": "dano_extra_condicional",
+              "condicao": "alvo_medio_ou_maior",
+              "valor": "1d6"
+            }
+          ]
+        }
+      ],
+      "modificadores": []
+    }
+  ]
+}
+  }
+}
+
+
+

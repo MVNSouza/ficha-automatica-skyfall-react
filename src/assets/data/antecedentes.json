@@ -1,0 +1,1011 @@
+{
+"antecedentes": {
+
+  "andarilho": {
+    "nome": "Andarilho",
+    "descricao": "Você passou grande parte da sua vida vagando sem destino fixo, aprendendo a sobreviver em diferentes ambientes.",
+
+    "atributos": {},
+
+    "habilidadesBase": [
+      {
+        "nome": "Vida na Estrada",
+        "efeitos": [
+          {
+            "tipo": "proficiencia_pericia",
+            "pericia": "sobrevivencia"
+          },
+          {
+            "tipo": "proficiencia_pericia",
+            "pericia": "percepcao"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": []
+  },
+
+  "nobre": {
+    "nome": "Nobre",
+    "descricao": "Você nasceu em uma família de prestígio e possui influência social significativa.",
+
+    "atributos": {},
+
+    "habilidadesBase": [
+      {
+        "nome": "Etiqueta da Corte",
+        "efeitos": [
+          {
+            "tipo": "proficiencia_pericia",
+            "pericia": "persuasao"
+          },
+          {
+            "tipo": "proficiencia_pericia",
+            "pericia": "intuicao"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": []
+  }
+},
+
+"agouro": {
+  "nome": "Agouro",
+  "descricao": "Você sobreviveu a um ritual macabro que deixou marcas terríveis em seu corpo e alma. Essas marcas chamam atenção, despertam medo e curiosidade, mas também lhe concedem resistência e poder. O culto ou entidade que o marcou ainda ecoa em sua vida, para o bem ou para o mal.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["arcanismo", "doutrinas"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        {
+          "tipo": "adquirir_idioma",
+          "idioma": "comum"
+        },
+        {
+          "tipo": "escolha_idioma",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        {
+          "tipo": "item_inicial",
+          "descricao": "materiais ritualisticos (componentes para magias de controle)"
+        },
+        {
+          "tipo": "item_inicial",
+          "descricao": "pocao de cura"
+        },
+        {
+          "tipo": "ouro_inicial",
+          "valor": "3d6+10"
+        }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "interacao_marca_ou_descoberta",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Sobrevivente",
+      "efeitos": []
+    }
+  ],
+
+  "habilidades": [
+    {
+      "nome": "Marcas Terríveis",
+      "custo": 1,
+      "tipo": "reacao",
+      "alvo": "self",
+      "gatilho": {
+        "tipo": "ser_alvo",
+        "condicoes": [
+          {
+            "tipo": "descritor",
+            "valor": "necrotico"
+          },
+          {
+            "tipo": "ataque_contra_defesa",
+            "defesa": "SAB"
+          }
+        ]
+      },
+      "efeitos": [
+        {
+          "tipo": "resistencia",
+          "contra": "ataque"
+        }
+      ]
+    }
+  ]
+},
+
+  "aristocrata": {
+    "nome": "Aristocrata",
+    "descricao": "Você descende de uma família da alta sociedade e cresceu dentro do mundo da nobreza.",
+
+    "atributos": {},
+
+    "habilidadesBase": [
+      {
+        "nome": "Proficiências",
+        "efeitos": [
+          {
+            "tipo": "escolha_proficiencia_pericia",
+            "opcoes": ["cultura", "diplomacia"],
+            "quantidade": 1
+          }
+        ]
+      },
+      {
+        "nome": "Idiomas",
+        "efeitos": [
+          { "tipo": "adquirir_idioma", "idioma": "comum" },
+          { "tipo": "escolha_idioma", "quantidade": 3 }
+        ]
+      },
+      {
+        "nome": "Equipamento Inicial",
+        "efeitos": [
+          { "tipo": "item_inicial", "descricao": "carta de linhagem" },
+          { "tipo": "item_inicial", "descricao": "roupas finas" },
+          { "tipo": "item_inicial", "descricao": "presente aristocratico (ate T$30)" },
+          { "tipo": "ouro_inicial", "valor": "3d10+30" }
+        ]
+      },
+      {
+        "nome": "Evento Marcante",
+        "efeitos": [
+          {
+            "tipo": "ganho_recurso_condicional",
+            "recurso": "catarse",
+            "condicao": "comportamento_nobre_ou_problema_social",
+            "valor": 1
+          }
+        ]
+      },
+      {
+        "nome": "Etiquetudo",
+        "efeitos": [
+          {
+            "tipo": "modificar_atitude",
+            "condicao": "aristocracia_aliada",
+            "efeito": "melhora"
+          },
+          {
+            "tipo": "modificar_atitude",
+            "condicao": "aristocracia_inimiga",
+            "efeito": "piora"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": []
+  },
+
+  "artista": {
+    "nome": "Artista",
+    "descricao": "Sua vida gira em torno da arte, seja no palco ou no caos.",
+
+    "atributos": {},
+
+    "habilidadesBase": [
+      {
+        "nome": "Proficiências",
+        "efeitos": [
+          {
+            "tipo": "escolha_proficiencia_pericia",
+            "opcoes": ["apresentacao", "aptidao"],
+            "quantidade": 1
+          }
+        ]
+      },
+      {
+        "nome": "Idiomas",
+        "efeitos": [
+          { "tipo": "adquirir_idioma", "idioma": "comum" },
+          { "tipo": "escolha_idioma", "quantidade": 1 }
+        ]
+      },
+      {
+        "nome": "Equipamento Inicial",
+        "efeitos": [
+          { "tipo": "item_inicial", "descricao": "kit artistico (T$20)" },
+          { "tipo": "item_inicial", "descricao": "obra de arte pessoal" },
+          { "tipo": "item_inicial", "descricao": "roupas artisticas" },
+          { "tipo": "ouro_inicial", "valor": "3d6" }
+        ]
+      },
+      {
+        "nome": "Evento Marcante",
+        "efeitos": [
+          {
+            "tipo": "ganho_recurso_condicional",
+            "recurso": "catarse",
+            "condicao": "emocionar_ou_perigo_por_arte",
+            "valor": 1
+          }
+        ]
+      }
+    ],
+
+    "habilidades": [
+      {
+        "nome": "Animar a Plateia",
+        "custo": 1,
+        "tipo": "acao",
+        "duracao": "sustentada",
+        "efeitos": [
+          {
+            "tipo": "teste",
+            "pericias": ["apresentacao", "aptidao"],
+            "cd": 10
+          },
+          {
+            "tipo": "aplicar_condicao_area",
+            "condicao": "encantado",
+            "alcance": 9
+          }
+        ]
+      }
+    ]
+  },
+
+  "assistentemagitec": {
+    "nome": "Assistente Magitec",
+    "descricao": "Você trabalha com tecnologia magitec e possui conhecimento avançado.",
+
+    "atributos": {},
+
+    "habilidadesBase": [
+      {
+        "nome": "Proficiências",
+        "efeitos": [
+          {
+            "tipo": "escolha_proficiencia_pericia",
+            "opcoes": ["arcanismo", "magitec"],
+            "quantidade": 1
+          }
+        ]
+      },
+      {
+        "nome": "Idiomas",
+        "efeitos": [
+          { "tipo": "adquirir_idioma", "idioma": "comum" },
+          { "tipo": "adquirir_idioma", "idioma": "vampyr" }
+        ]
+      },
+      {
+        "nome": "Equipamento Inicial",
+        "efeitos": [
+          { "tipo": "item_inicial", "descricao": "kit magitec" },
+          { "tipo": "item_inicial", "descricao": "componente alquimico desconhecido" },
+          { "tipo": "item_inicial", "descricao": "projeto incompleto" },
+          { "tipo": "ouro_inicial", "valor": "3d6+10" }
+        ]
+      },
+      {
+        "nome": "Evento Marcante",
+        "efeitos": [
+          {
+            "tipo": "ganho_recurso_condicional",
+            "recurso": "catarse",
+            "condicao": "engenhoca_ajuda_ou_perigo",
+            "valor": 1
+          }
+        ]
+      },
+      {
+        "nome": "Engenhoqueiro",
+        "efeitos": [
+          {
+            "tipo": "item_especial",
+            "descricao": "engenhoca magitec inicial (T$50)"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": []
+  },
+
+  "cacador": {
+    "nome": "Caçador",
+    "descricao": "Você foi moldado pelos ermos e pela sobrevivência.",
+
+    "atributos": {},
+
+    "habilidadesBase": [
+      {
+        "nome": "Proficiências",
+        "efeitos": [
+          {
+            "tipo": "escolha_proficiencia_pericia",
+            "opcoes": ["furtividade", "natureza"],
+            "quantidade": 1
+          }
+        ]
+      },
+      {
+        "nome": "Idiomas",
+        "efeitos": [
+          { "tipo": "adquirir_idioma", "idioma": "comum" },
+          { "tipo": "escolha_idioma", "quantidade": 1 }
+        ]
+      },
+      {
+        "nome": "Equipamento Inicial",
+        "efeitos": [
+          { "tipo": "item_inicial", "descricao": "roupas de viagem" },
+          { "tipo": "item_inicial", "descricao": "armadilha de caca" },
+          { "tipo": "item_inicial", "descricao": "arma simples" },
+          { "tipo": "ouro_inicial", "valor": "3d6" }
+        ]
+      },
+      {
+        "nome": "Evento Marcante",
+        "efeitos": [
+          {
+            "tipo": "ganho_recurso_condicional",
+            "recurso": "catarse",
+            "condicao": "cacada_ou_ser_presa",
+            "valor": 1
+          }
+        ]
+      },
+      {
+        "nome": "Dia de Caçador",
+        "efeitos": [
+          {
+            "tipo": "acao_extra_condicional",
+            "condicao": "exploracao",
+            "acao": "caca_e_coleta"
+          },
+          {
+            "tipo": "resistencia",
+            "contra": "fome_fadiga"
+          }
+        ]
+      }
+    ],
+
+    "habilidades": []
+  },
+
+  "devedor": {
+  "nome": "Devedor",
+  "descricao": "Você deve algo para alguém e sabe que estão atrás de você.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["furtividade", "malandragem"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 1 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "ouro_inicial", "valor": "10d6+30" },
+        {
+          "tipo": "divida",
+          "multiplicador": 10
+        }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "divida_evento",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Quem deve, teme",
+      "efeitos": [
+        {
+          "tipo": "modificar_iniciativa",
+          "condicao": "resultado_menor_ou_igual_9",
+          "novo_valor": 10
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"erudito": {
+  "nome": "Erudito",
+  "descricao": "Você possui formação acadêmica ampla sobre o mundo.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["arcanismo", "cultura", "doutrinas", "medicina", "natureza"],
+          "quantidade": 2
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 3 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "mochila de estudos" },
+        { "tipo": "item_inicial", "descricao": "compendio academico" },
+        { "tipo": "item_inicial", "descricao": "lanterna (5 cenas)" },
+        { "tipo": "ouro_inicial", "valor": "3d6+10" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "descoberta_estudo_ou_perigo",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Eureka",
+      "efeitos": [
+        {
+          "tipo": "gastar_recurso",
+          "recurso": "enfase",
+          "custo": 1,
+          "acao": "vantagem_teste"
+        },
+        {
+          "tipo": "condicao",
+          "atributos": ["INT", "SAB"]
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"estudiosofeerico": {
+  "nome": "Estudioso Feérico",
+  "descricao": "Você compreende criaturas feéricas e o arcanum.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["arcanismo", "natureza"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "adquirir_idioma", "idioma": "elfico" },
+        { "tipo": "adquirir_idioma", "idioma": "feerico" }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "asas de fada preservadas" },
+        { "tipo": "item_inicial", "descricao": "componentes magicos utilitarios" },
+        { "tipo": "ouro_inicial", "valor": "3d6+10" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "feerico_evento",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Reconhecer Encantos",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_protecao",
+          "opcoes": ["SAB", "INT"],
+          "quantidade": 1
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"heroidopovo": {
+  "nome": "Herói do Povo",
+  "descricao": "Você é visto como herói, mesmo que duvide disso.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["qualquer"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 1 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "presente heroico" },
+        { "tipo": "item_especial", "descricao": "sigilo 1 grau (1 carga)" },
+        { "tipo": "ouro_inicial", "valor": "2d6" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "ato_heroico",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Chamado Heroico",
+      "efeitos": [
+        {
+          "tipo": "ganho_temporario",
+          "recurso": "vida",
+          "base": "dado_catarse"
+        },
+        {
+          "tipo": "limite",
+          "por": "cena",
+          "valor": 1
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"juramentado": {
+  "nome": "Juramentado",
+  "descricao": "Sua vida é guiada por um juramento.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["percepcao", "medicina"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 2 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "escudo" },
+        { "tipo": "item_inicial", "descricao": "kit curandeiro" },
+        { "tipo": "item_inicial", "descricao": "prova de juramento" },
+        { "tipo": "ouro_inicial", "valor": "3d6+10" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "proteger_juramento",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Honrar Promessa",
+      "efeitos": [
+        { "tipo": "proficiencia_item", "item": "escudos" },
+        {
+          "tipo": "proficiencia_protecao_classe"
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"militar": {
+  "nome": "Militar",
+  "descricao": "Você possui experiência em combate e estratégia militar.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["medicina", "preparo_fisico"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 1 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "arma" },
+        { "tipo": "item_inicial", "descricao": "kit primeiros socorros" },
+        { "tipo": "item_inicial", "descricao": "insignia militar" },
+        { "tipo": "ouro_inicial", "valor": "3d6+10" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "passado_militar",
+          "valor": 1
+        }
+      ]
+    }
+  ],
+
+  "habilidades": [
+    {
+      "nome": "Veterano de Campo",
+      "tipo": "passivo",
+      "efeitos": [
+        {
+          "tipo": "teste_condicional",
+          "atributos": ["INT", "SAB", "CAR"],
+          "resultado": "vantagem_primeira_rodada"
+        }
+      ]
+    }
+  ]
+},
+
+"navegante": {
+  "nome": "Navegante",
+  "descricao": "Você viajou por vários horizontes e adquiriu experiências únicas.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["aptidao_navegacao", "cultura"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 2 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "veiculo pequeno quebrado" },
+        { "tipo": "item_inicial", "descricao": "arma simples (até T$20)" },
+        { "tipo": "item_inicial", "descricao": "lanterna" },
+        { "tipo": "ouro_inicial", "valor": "3d6+10" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "auxilio_jornada_ou_exploracao",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Carteira Opathiana de Habilitação",
+      "efeitos": [
+        {
+          "tipo": "gastar_recurso",
+          "recurso": "enfase",
+          "custo": 1,
+          "acao": "proficiencia_ou_expert_aptidao_veiculo",
+          "duracao": "fim_da_cena"
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"procurado": {
+  "nome": "Procurado",
+  "descricao": "Você está fugindo de algo ou alguém que deseja encontrá-lo.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["furtividade", "malandragem"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 2 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "item ligado ao motivo de ser procurado (até T$20)" },
+        { "tipo": "ouro_inicial", "valor": "3d6+10" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "fuga_ou_perigo_por_ser_procurado",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Sempre em Fuga",
+      "efeitos": [
+        {
+          "tipo": "gastar_recurso",
+          "recurso": "enfase",
+          "custo": 1,
+          "acao": "aumentar_deslocamento",
+          "valor": 3,
+          "duracao": "fim_do_turno"
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"proletario": {
+  "nome": "Proletário",
+  "descricao": "Você já teve trabalho honesto e agora sobrevive como aventureiro.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["preparo_fisico", "aptidao_qualquer"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "escolha_idioma", "quantidade": 1 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "mochila com equipamentos do trabalho (até T$20)" },
+        { "tipo": "item_inicial", "descricao": "arma relacionada ao oficio" },
+        { "tipo": "item_inicial", "descricao": "objeto pessoal importante" },
+        { "tipo": "ouro_inicial", "valor": "6d6+10" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "contribuicao_oficio_cena",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Descanso Merecido",
+      "efeitos": [
+        {
+          "tipo": "gastar_recurso",
+          "recurso": "catarse",
+          "custo": 1,
+          "acao": "recuperacao_pv_melhorada_e_enfase_adicional",
+          "duracao": "fim_descanso"
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+},
+
+"viajanteintrepido": {
+  "nome": "Viajante Intrépido",
+  "descricao": "Você explora locais distantes em busca de objetivos pessoais ou coletivos.",
+
+  "atributos": {},
+
+  "habilidadesBase": [
+    {
+      "nome": "Proficiências",
+      "efeitos": [
+        {
+          "tipo": "escolha_proficiencia_pericia",
+          "opcoes": ["natureza", "percepcao"],
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "nome": "Idiomas",
+      "efeitos": [
+        { "tipo": "adquirir_idioma", "idioma": "comum" },
+        { "tipo": "adquirir_idioma", "idioma": "bo" },
+        { "tipo": "escolha_idioma", "quantidade": 2 }
+      ]
+    },
+    {
+      "nome": "Equipamento Inicial",
+      "efeitos": [
+        { "tipo": "item_inicial", "descricao": "roupas de viajante" },
+        { "tipo": "ouro_inicial", "valor": "5d6+30" }
+      ]
+    },
+    {
+      "nome": "Evento Marcante",
+      "efeitos": [
+        {
+          "tipo": "ganho_recurso_condicional",
+          "recurso": "catarse",
+          "condicao": "aprendizado_local_novo",
+          "valor": 1
+        }
+      ]
+    },
+    {
+      "nome": "Pé na Estrada",
+      "efeitos": [
+        {
+          "tipo": "acao_livre_exploracao",
+          "descricao": "Suporte",
+          "quantidade": 1
+        },
+        {
+          "tipo": "reduzir_consequencias_deslocamento",
+          "atributo": "SAB",
+          "vantagem": true
+        }
+      ]
+    }
+  ],
+
+  "habilidades": []
+}
+
+}

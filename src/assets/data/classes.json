@@ -1,0 +1,105 @@
+{
+  "combatente": {
+    "nome": "Combatente",
+    "descricao": "O Combatente é especialista em batalhas físicas, capaz de resistir e causar grandes danos. Ele representa a linha de frente do grupo, sendo a muralha que protege seus aliados.",
+    "dadoVida": "1d10",
+    "pv1Nivel": "10 + CON",
+    "pvPorNivel": "1d10 (ou 6) + CON",
+    "pontosEnfase": 3,
+    "proficiências": {
+      "armaduras": ["Leves", "Pesadas", "Escudos"],
+      "armas": ["Simples", "Marciais"],
+      "proteções": ["CON", "FOR ou DES"],
+      "aptidõesIdiomas": ["Aptidão (Navegação) com um tipo de veículo", "1 idioma"],
+      "pericias": ["Preparo Físico", "Escolha 2 entre Cultura, Intimidação, Intuição, Percepção ou Natureza"]
+    },
+    "equipamentoInicial": [
+      "(a) cota de malha ou (b) armadura de couro batido, arco longo e aljava com flechas",
+      "(a) uma arma marcial e um escudo leve ou (b) duas armas marciais",
+      "(a) uma besta leve e bolsa com virotes ou (b) duas machadinhas",
+      "3d6+10 trocados"
+    ],
+    "tabela": [
+      {"nivel": 1, "bonusProf": 2, "habilidades": "Ataque Poderoso (1d6), Estilo de Combate, Façanhas de Combate", "facanhas": 1, "ataquePoderoso": "Ampliar 15+ (1d6)", "pontosEnfase": 3},
+      {"nivel": 2, "bonusProf": 2, "habilidades": "Trilha", "facanhas": 1, "ataquePoderoso": "Ampliar 15+ (1d6)", "pontosEnfase": 6},
+      {"nivel": 3, "bonusProf": 2, "habilidades": "Só um Arranhão", "facanhas": 1, "ataquePoderoso": "Ampliar 15+ (1d8)", "pontosEnfase": 9},
+      {"nivel": 4, "bonusProf": 2, "habilidades": "Talento Adquirido", "facanhas": 2, "ataquePoderoso": "Ampliar 15+ (1d8)", "pontosEnfase": 12},
+      {"nivel": 5, "bonusProf": 3, "habilidades": "Ataque em Sequência", "facanhas": 2, "ataquePoderoso": "Ampliar 15+ (1d8)", "pontosEnfase": 15},
+      {"nivel": 6, "bonusProf": 3, "habilidades": "Talento Adquirido (2)", "facanhas": 2, "ataquePoderoso": "Ampliar 12+ (1d8)", "pontosEnfase": 18},
+      {"nivel": 7, "bonusProf": 3, "habilidades": "Trilha Avançada", "facanhas": 3, "ataquePoderoso": "Ampliar 12+ (1d8)", "pontosEnfase": 21},
+      {"nivel": 8, "bonusProf": 3, "habilidades": "Talento Adquirido (3)", "facanhas": 3, "ataquePoderoso": "Ampliar 12+ (1d8)", "pontosEnfase": 24},
+      {"nivel": 9, "bonusProf": 4, "habilidades": "Estilo de Combate Avançado", "facanhas": 3, "ataquePoderoso": "Ampliar 12+ (1d10)", "pontosEnfase": 27},
+      {"nivel": 10, "bonusProf": 4, "habilidades": "Talento Adquirido (4)", "facanhas": 4, "ataquePoderoso": "Ampliar 12+ (1d10)", "pontosEnfase": 30},
+      {"nivel": 11, "bonusProf": 4, "habilidades": "Ataque em Sequência (2)", "facanhas": 4, "ataquePoderoso": "Ampliar 12+ (1d10)", "pontosEnfase": 33},
+      {"nivel": 12, "bonusProf": 4, "habilidades": "Talento Adquirido (5)", "facanhas": 4, "ataquePoderoso": "Ampliar 10+ (1d10)", "pontosEnfase": 36}
+    ]
+  },
+  "especialista": {
+    "nome": "Especialista",
+    "descricao": "Enquanto combatentes estão preocupados em otimizar seu potencial em Cenas de Combate, os especialistas utilizam de técnicas diversas para conquistar a vitória em diferentes situações. Personagens especialistas têm uma área de expertise e fazem uso de suas artimanhas para conseguir vantagens narrativas importantes.",
+    "dadoVida": "1d8",
+    "pv1Nivel": "8 + CON",
+    "pvPorNivel": "8 (ou 5) + CON",
+    "pontosEnfase": 3,
+    "proficiências": {
+      "armaduras": ["Leves"],
+      "armas": ["Simples"],
+      "proteções": ["2 à escolha"],
+      "aptidõesIdiomas": ["Escolha entre 2 Aptidões e 1 idioma ou 3 idiomas"],
+      "pericias": ["Escolha 5. Pode trocar 1 por proficiência em armas de fogo ou arma regional"]
+    },
+    "equipamentoInicial": [
+      "Armadura de couro e duas adagas",
+      "Quatro armas simples (se escolher à distância recebe munição adequada)",
+      "3d6+10 trocados"
+    ],
+    "tabela": [
+      {"nivel":1,"bonusProf":2,"habilidades":"Ataque Especializado, Especialidade, Artimanhas","ataqueEspecializado":"1d6","pontosEnfase":3},
+      {"nivel":2,"bonusProf":2,"habilidades":"Trilha","ataqueEspecializado":"1d6","pontosEnfase":6},
+      {"nivel":3,"bonusProf":2,"habilidades":"Ação Ardilosa","ataqueEspecializado":"1d6","pontosEnfase":9},
+      {"nivel":4,"bonusProf":2,"habilidades":"Talento Adquirido","ataqueEspecializado":"1d8","pontosEnfase":12},
+      {"nivel":5,"bonusProf":3,"habilidades":"Talento Especializado (1), Cambalhota!","ataqueEspecializado":"1d8","pontosEnfase":15},
+      {"nivel":6,"bonusProf":3,"habilidades":"Talento Adquirido (2)","ataqueEspecializado":"1d8","pontosEnfase":18},
+      {"nivel":7,"bonusProf":3,"habilidades":"Trilha Avançada, Evasão Especializada","ataqueEspecializado":"1d8","pontosEnfase":21},
+      {"nivel":8,"bonusProf":3,"habilidades":"Talento Adquirido (3)","ataqueEspecializado":"1d10","pontosEnfase":24},
+      {"nivel":9,"bonusProf":4,"habilidades":"Talento Especializado (2)","ataqueEspecializado":"1d10","pontosEnfase":27},
+      {"nivel":10,"bonusProf":4,"habilidades":"Talento Adquirido (4)","ataqueEspecializado":"1d10","pontosEnfase":30},
+      {"nivel":11,"bonusProf":4,"habilidades":"Talento Especializado (3)","ataqueEspecializado":"1d10","pontosEnfase":33},
+      {"nivel":12,"bonusProf":4,"habilidades":"Talento Adquirido (5)","ataqueEspecializado":"1d12","pontosEnfase":36}
+    ]
+  },
+  "ocultista": {
+    "nome": "Ocultista",
+    "descricao": "Ocultistas são capazes de manipular as forças arcanas para gerar efeitos mágicos incríveis, que variam entre disparos elementais, portais para teletransporte e até efeitos de encantamento.",
+    "dadoVida": "1d6",
+    "pv1Nivel": "6 + CON",
+    "pvPorNivel": "6 (ou 4) + CON",
+    "pontosEnfase": 3,
+    "proficiências": {
+      "armaduras": [],
+      "armas": ["Simples"],
+      "proteções": ["Atributo-chave de conjuração + 1 à escolha"],
+      "aptidõesIdiomas": ["2 idiomas"],
+      "pericias": ["Escolha 1 entre Arcanismo, Doutrinas ou Natureza", "Escolha 3 entre Aptidão, Arcanismo, Cultura, Doutrinas, Intuição, Magitec, Medicina, Natureza ou Percepção", "Pode trocar 1 por proficiência em armas de fogo ou arma regional"]
+    },
+    "equipamentoInicial": [
+      "Uma arma simples (se à distância recebe munição adequada)",
+      "Uma bolsa de componentes mágicos",
+      "3d6+15 trocados"
+    ],
+    "tabela": [
+      {"nivel":1,"bonusProf":2,"habilidades":"Ocultismo, Conexão Superficial, Tradição Ocultista","truquesConhecidos":3,"camadaMagia":"Superficial","pontosEnfase":3},
+      {"nivel":2,"bonusProf":2,"habilidades":"Trilha","truquesConhecidos":1,"camadaMagia":"Superficial","pontosEnfase":6},
+      {"nivel":3,"bonusProf":2,"habilidades":"Vislumbre Arcano (1 uso)","truquesConhecidos":1,"camadaMagia":"Superficial","pontosEnfase":9},
+      {"nivel":4,"bonusProf":2,"habilidades":"Talento Adquirido","truquesConhecidos":2,"camadaMagia":"Superficial","pontosEnfase":12},
+      {"nivel":5,"bonusProf":3,"habilidades":"Conexão Rasa","truquesConhecidos":2,"camadaMagia":"Rasa","pontosEnfase":15},
+      {"nivel":6,"bonusProf":3,"habilidades":"Talento Adquirido (2)","truquesConhecidos":2,"camadaMagia":"Rasa","pontosEnfase":18},
+      {"nivel":7,"bonusProf":3,"habilidades":"Trilha Avançada, Vislumbre Arcano (2 usos)","truquesConhecidos":3,"camadaMagia":"Rasa","pontosEnfase":21},
+      {"nivel":8,"bonusProf":3,"habilidades":"Talento Adquirido (3)","truquesConhecidos":3,"camadaMagia":"Rasa","pontosEnfase":24},
+      {"nivel":9,"bonusProf":4,"habilidades":"Conexão Profunda","truquesConhecidos":3,"camadaMagia":"Profunda","pontosEnfase":27},
+      {"nivel":10,"bonusProf":4,"habilidades":"Talento Adquirido (4)","truquesConhecidos":4,"camadaMagia":"Profunda","pontosEnfase":30},
+      {"nivel":11,"bonusProf":4,"habilidades":"Vislumbre Arcano (3 usos)","truquesConhecidos":4,"camadaMagia":"Profunda","pontosEnfase":33},
+      {"nivel":12,"bonusProf":4,"habilidades":"Talento Adquirido (5)","truquesConhecidos":4,"camadaMagia":"Profunda","pontosEnfase":36}
+    ]
+  }
+}

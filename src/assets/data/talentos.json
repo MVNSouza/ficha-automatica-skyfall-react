@@ -1,0 +1,521 @@
+{
+  "talentos": {
+    "porRaca": {
+      "anuro": [
+        {
+          "nome": "Bolota Devastadora",
+          "descricao": "enquanto está inflado, você consegue transformar-se em uma esfera de destruição. Você pode usar a habilidade “Esfera Anuri da Destruição”. Pré-requisito: Herança Bufonin.",
+          "habilidades": [
+            {
+              "nome": "ESFERA ANURI DA DESTRUIÇÃO",
+              "custo": 1,
+              "descritor": ["ANURO", "MOVIMENTO"],
+              "detalhes": "Pré-Requisito: você precisa estar inflado com a habilidade \"Inflar\". Alcance: pessoal. Alvo: você. Duração: até o final do turno.",
+              "efeito": "você não gera ataques de oportunidade. Além disso, toda vez que uma criatura entrar em um espaço no alcance de uma de suas armas empunhadas, você pode usar a habilidade “Ataque Corpo a Corpo” como ação livre (limitado a uma vez por alvo neste turno). Você não pode aplicar modificações nesses ataques."
+            }
+          ]
+        },
+        {
+          "nome": "Derme Catalisadora de Elementos",
+          "descricao": "sua pele é capaz de condensar energia mágica. Você recebe a habilidade “Catalisar Elementos na Derme”. Pré-requisito: Herança Ranin.",
+          "habilidades": [
+            {
+              "nome": "CATALISAR ELEMENTOS NA DERME",
+              "custo": 1,
+              "descritor": ["ANURO", "ELEMENTAL"],
+              "detalhes": "Gatilho: você vai sofrer dano ÁCIDO, ELÉTRICO, GÉLIDO ou ÍGNEO. Alcance: pessoal. Alvo: você. Duração: uma cena.",
+              "efeito": "você recebe resistência ao tipo de dano escolhido. Além disso, seu próximo ATAQUE realizado até o final da cena causa +1d6 pontos de dano ESPECIAL."
+            }
+          ]
+        },
+        {
+          "nome": "Deslocamento Perigoso",
+          "descricao": "você sabe usar seus deslocamentos especiais como armas. Você aumenta seu deslocamento em +3 m (2 q). Seus ATAQUES recebem a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+0 PE [ADICIONA]",
+              "custo": 0,
+              "descritor": ["ANURO"],
+              "detalhes": "",
+              "efeito": "Especial: se estiver realizando um deslocamento especial, seu ataque causa +1d8 pontos de dano do mesmo tipo."
+            }
+          ]
+        },
+        {
+          "nome": "Linguada Mortal",
+          "descricao": "sua língua é uma arma perigosa. As ações realizadas através da característica Lingua Versátil recebem a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+2 PE [ADICIONA]",
+              "custo": 2,
+              "descritor": ["ANURO"],
+              "detalhes": "",
+              "efeito": "você realiza um “Ataque Corpo a Corpo” com sua língua empunhando a arma que acabou de sacar, como se tivesse usado a ação “Atacar com Arma Secundária”. Você só pode usar essa modificação uma vez por turno."
+            }
+          ]
+        },
+        {
+          "nome": "Soro Restaurador",
+          "descricao": "seu soro é capaz de estancar feridas. “Produzir Soro” recebe a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+1 PE [ADICIONA]",
+              "custo": 1,
+              "descritor": ["ANURO", "CURA"],
+              "detalhes": "Descritor: CURA",
+              "efeito": "você cura +1d6 pontos de vida do alvo. Você pode aplicar essa modificação quantas vezes quiser."
+            }
+          ]
+        }
+      ],
+      "draco": [
+        {
+          "nome": "Escamas Protetoras",
+          "descricao": "escamas dracônicas são conhecidas por sua alta resistência. Você recebe +2 de redução e resistência a dano ENERGÉTICO.",
+          "habilidades": []
+        },
+        {
+          "nome": "Frenesi Dracônico",
+          "descricao": "suas armas naturais tornam-se ainda mais poderosas. Seus ATAQUES com o descritor ARMA recebem a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+2 PE [ADICIONA]",
+              "custo": 2,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "depois do seu ataque, você pode usar a habilidade “Ataque Corpo a Corpo” com suas armas naturais como ação livre. Esse ataque causa dano do tipo de sua herança."
+            }
+          ]
+        },
+        {
+          "nome": "Presença Dracônica",
+          "descricao": "a energia vital de um Dragão corre em suas veias e você aprendeu a manifestar isso para aterrorizar seus inimigos. Você pode usar a habilidade “Impor Presença Dracônica”.",
+          "habilidades": [
+            {
+              "nome": "IMPOR PRESENÇA DRACÔNICA",
+              "custo": 1,
+              "descritor": ["DRACO", "ATAQUE", "MÁGICO", "MEDO"],
+              "detalhes": "Gatilho: você joga iniciativa. Alcance: 9m (6q). Alvo: criaturas a sua escolha. Duração: instantânea. Ataque: mágico vs CAR.",
+              "efeito": "Acerto: o alvo fica Amedrontado até o final do seu próximo turno. Especial: você é considerado proficiente nesse ataque."
+            }
+          ]
+        },
+        {
+          "nome": "Sopro Dracônico Aprimorado",
+          "descricao": "você se torna capaz de moldar seu sopro dracônico, além de torná-lo mais potente. O dado de dano da sua habilidade “Sopro Dracônico” muda para d8. Além disso, ele recebe a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+0 PE [MUDA]",
+              "custo": 0,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "Alcance: 9m (6q). Alvo: criaturas em uma linha de 9 m (6 q) de comprimento ou em uma esfera de 3 m (2 q) de raio."
+            }
+          ]
+        }
+      ],
+      "elfe": [
+        {
+          "nome": "Deslocamento Titânico",
+          "descricao": "você aumenta o seu deslocamento em +3 m (2 q). Além disso, você não tem desvantagem em ATAQUES em decorrência de movimento e não precisa realizar testes de concentração para manter magias nessas situações.",
+          "habilidades": []
+        },
+        {
+          "nome": "Eu Tenho um Parente",
+          "descricao": "sempre há um parente pronto para te ajudar quando você chega em uma cidade. Durante cenas de interação social, desafio ou exploração, você pode escolher ter vantagem em testes graças à essa pessoa famosa. A quantidade de testes que recebem vantagem é igual ao seu bônus de proficiência.",
+          "habilidades": []
+        },
+        {
+          "nome": "Persistência Elfica",
+          "descricao": "elfes são conhecidos por sua persistência. Seus testes com vantagem recebem a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+1 PE [ADICIONA]",
+              "custo": 1,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "você joga um dado de vantagem adicional, mas ainda deve escolher apenas um para o resultado final."
+            }
+          ]
+        },
+        {
+          "nome": "Voz Encantadora de Sa'Al",
+          "descricao": "sua voz é encantadora tal qual a da titã Sa'Al'Lima. Você pode usar a habilidade “Inspiração de Sa'Al”.",
+          "habilidades": [
+            {
+              "nome": "INSPIRAÇÃO DE SA'AL",
+              "custo": 1,
+              "descritor": ["ELFE", "INSPIRAÇÃO", "VOZ"],
+              "detalhes": "Alcance: 9m (6q). Alvo: um aliado. Duração: uma cena.",
+              "efeito": "você deixa o alvo Inspirado. Enquanto estiver Inspirado, seu próximo ATAQUE que acertar somará o resultado de todos os dados de catarse lançados no teste como bônus no dano, encerrando a condição em seguida. Especial: uma criatura só pode ser alvo dessa habilidade uma vez por cena."
+            }
+          ]
+        }
+      ],
+      "gnomo": [
+        {
+          "nome": "Ataque Feroz",
+          "descricao": "seus instintos e características animais tornam seus ataques em movimento ainda mais letais. Você causa +1d6 de dano sempre que se movimentar pelo menos 6 m (4 q) antes de realizar um ATAQUE com ARMA.",
+          "habilidades": []
+        },
+        {
+          "nome": "Canalização Animalesca",
+          "descricao": "você aprende a canalizar sua magia por meio de suas armas naturais. Seus truques mágicos recebem a seguinte modificação (Pré-requisito: Dentes Afiados):",
+          "habilidades": [
+            {
+              "nome": "+2 PE [ADICIONA]",
+              "custo": 2,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "você faz um “Ataque Corpo a Corpo” com suas armas naturais concedidas por \"Dentes Afiados\" como uma ação livre."
+            }
+          ]
+        },
+        {
+          "nome": "Conexão com o Ânima",
+          "descricao": "sua conexão com seu espírito animal permite-lhe realizar feitos únicos e raros. Escolha uma perícia. Você recebe proficiência nela e é considerado expert. Além disso, recebe proficiência em uma Proteção à sua escolha.",
+          "habilidades": []
+        },
+        {
+          "nome": "Manifestação de Herança",
+          "descricao": "ao aproximar-se de sua forma animal derradeira, você manifesta mais características animais. Escolha duas heranças menores ou uma herança maior de gnomo e receba os benefícios escolhidos.",
+          "habilidades": []
+        }
+      ],
+      "humani": [
+        {
+          "nome": "Aguardar a sua Hora",
+          "descricao": "você sabe esperar e é recompensado por isso. Sempre que for lançar sua iniciativa, pode escolher ser o último a agir. Se o fizer, até o final dessa cena, pode escolher jogar novamente uma quantidade de dados igual ao seu bônus de proficiência. (Pré-requisito: Herança Mortalha).",
+          "habilidades": []
+        },
+        {
+          "nome": "Caminho do Andarilho",
+          "descricao": "o caminho do andarilho está intimamente ligado ao percurso da estrada, d'A Maré e d’A Morte. Você aumenta seu deslocamento em +3 m (2 q). Além disso, você recebe um bônus de +3 em FOR para determinar seu Limite de Volume.",
+          "habilidades": []
+        },
+        {
+          "nome": "Encontro com A Morte",
+          "descricao": "estar frente a frente com A Morte pode despertar poderes inatos. Sempre que utilizar um dos resultados anotados na habilidade “A Morte é Minha Companheira”, você recebe +2 em todos os testes que realizar até o final da cena. Esse bônus acumula em si para cada resultado utilizado na cena. (Pré-requisito: Herança Mortalha).",
+          "habilidades": []
+        },
+        {
+          "nome": "Maúna Caravela",
+          "descricao": "você marcou a imagem da caravela em seu corpo, registrando seu encontro com o espírito místico das águas profundas. Você recebe resistência a dano ELÉTRICO. Além disso, você aprende o truque mágico \"Luz\" e a magia de camada superficial \"Presas\". (Pré-requisito: Herança Maresia).",
+          "habilidades": []
+        },
+        {
+          "nome": "Maúna Iguana",
+          "descricao": "o espírito guardião das encostas rochosas está para sempre marcado em seu corpo como o Maúna Iguana. Você pode escalar com velocidade igual ao seu deslocamento. Se terminar seu deslocamento em uma superfície vertical, você cai. Além disso, você aprende o truque mágico \"Raio Elemental (terra)\" e a magia de camada superficial \"Alarme\". (Pré-requisito: Herança Maresia).",
+          "habilidades": []
+        },
+        {
+          "nome": "Maúna Polvo",
+          "descricao": "o instinto protetor do espírito do polvo manifesta-se em seu corpo como tatuagens que cobrem grande parte da sua pele. Você recebe proficiência em Furtividade. Além disso, você aprende o truque mágico \"Mãos Mágicas\" e a magia de camada superficial \"Escuridão\". (Pré-requisito: Herança Maresia).",
+          "habilidades": []
+        },
+        {
+          "nome": "Maúna Tubarão",
+          "descricao": "o grande predador dos mares é seu espírito guardião e, assim como ele, você é o grande caçador. Você recebe proficiência em Percepção. Além disso, você aprende o truque mágico \"Marca de Sangue\" e a magia de camada superficial \"Infligir Ferimentos\". (Pré-requisito: Herança Maresia).",
+          "habilidades": []
+        },
+        {
+          "nome": "Transmitir Conhecimento Adquirido",
+          "descricao": "você aperfeiçoou suas técnicas de transmissão de conhecimento. Ao final de uma Cena de Descanso, pode escolher um aliado para receber inspiração, que dura até o próximo descanso. Enquanto estiver Inspirado dessa maneira, o aliado recebe proficiência em uma perícia na qual você é proficiente.",
+          "habilidades": []
+        },
+        {
+          "nome": "Vantagem Derradeira",
+          "descricao": "criaturas próximas do fim estão mais próximas da verdade, e você sabe como usar isso ao seu favor. Seus ATAQUES que usam atributos mentais têm a seguinte modificação (Pré-requisito: Herança Mortalha):",
+          "habilidades": [
+            {
+              "nome": "+1 PE [ADICIONA]",
+              "custo": 1,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "Especial: esse ataque é feito com vantagem caso seja contra uma criatura Machucada."
+            }
+          ]
+        },
+        {
+          "nome": "Resistir para Findar",
+          "descricao": "sua proximidade com A Morte fez com que você encontrasse formas de dar o fim. Seus ATAQUES recebem a seguinte modificação (Pré-requisito: Herança Mortalha):",
+          "habilidades": [
+            {
+              "nome": "+1 PE [ADICIONA]",
+              "custo": 1,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "Especial: você ignora todas as resistências do alvo nesse ataque."
+            }
+          ]
+        }
+      ],
+      "kishin": [
+        {
+          "nome": "Força Impactante",
+          "descricao": "sua imponência física causa impacto no campo de batalha. Sempre que acertar um ATAQUE usando FOR contra FOR ou CON, você causa dano adicional igual ao seu bônus de proficiência.",
+          "habilidades": []
+        },
+        {
+          "nome": "Palavras de Ordem",
+          "descricao": "sua conexão com A Ordem faz com que suas palavras sejam tão pesadas quanto a verdade. Sempre que usar uma habilidade com o descritor VOZ ou magia com componentes verbais, você pode lançar +1d6 e usar o resultado para aumentar o ataque, cura ou dano desencadeado.",
+          "habilidades": []
+        },
+        {
+          "nome": "Pressionar Vantagem",
+          "descricao": "toda oportunidade deve ser aproveitada. Sempre que fizer um ATAQUE com vantagem, você causa dano adicional igual ao seu bônus de proficiência.",
+          "habilidades": []
+        },
+        {
+          "nome": "Voz em Expansão",
+          "descricao": "sua voz ecoa as palavras d’A Ordem. Todas as suas habilidades com o descritor VOZ e magias com componentes verbais têm o alcance dobrado.",
+          "habilidades": []
+        }
+      ],
+      "sanguir": [
+        {
+          "nome": "Força de Vontade",
+          "descricao": "resistir ao chamado de Warpinier o fez forte. Você se torna proficiente em uma Proteção mental e uma física.",
+          "habilidades": []
+        },
+        {
+          "nome": "Inventividade Acelerada",
+          "descricao": "improvisar e adaptar são características marcantes do legado além da garoa. Você reduz em –1 ponto de ênfase o custo final de habilidades com descritor MÁGICO. O custo final não pode ser inferior a 1 ponto de ênfase.",
+          "habilidades": []
+        },
+        {
+          "nome": "Presas de Warpinier",
+          "descricao": "seu sangue maldito fez com que suas presas se tornassem verdadeiras armas, que podem ser usadas em momentos de adrenalina. Seus ATAQUES com o descritor ARMA recebem a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+2 PE [ADICIONA]",
+              "custo": 2,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "Acerto: +1d6 pontos de dano PERFURANTE e você recebe todos benefícios da característica “Sangue Maldito”, mas o alvo não fica com desvantagem em testes."
+            }
+          ]
+        },
+        {
+          "nome": "Vitae em Arma",
+          "descricao": "seu sangue pode ser usado como arma. Enquanto estiver Machucado, seus ATAQUES com o equipamento melhorado por “Modificar com Sangue” recebem a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "0 PE [ADICIONA]",
+              "custo": 0,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "Acerto: esse ataque ignora redução. Além disso, considera imunidade a dano como resistência."
+            }
+          ]
+        }
+      ],
+      "tatsunoko": [
+        {
+          "nome": "Criado para Matar",
+          "descricao": "você aprendeu que qualquer coisa pode ser usada como arma e leva isso a sério. Você aprende o truque \"Transmutar em Arma\". Além disso, ao atingir o 5º nível pode aplicar modificações como se soubesse conjurar magias de camada rasa e no 9º de magias profundas.",
+          "habilidades": []
+        },
+        {
+          "nome": "Infiltrador",
+          "descricao": "investigadores são treinados para entrar em lugares impossíveis. Você tem vantagem em todos os testes que envolvam Furtividade e não é revelado caso erre um ataque enquanto está Invisível ou furtivo.",
+          "habilidades": []
+        },
+        {
+          "nome": "Força nos Números",
+          "descricao": "todo tatsunoko sabe que precisa estar bem acompanhado para ter sucesso. Sempre que realizar um ATAQUE contra um inimigo que está em menor número, você causa dano adicional igual ao seu bônus de proficiência.",
+          "habilidades": []
+        },
+        {
+          "nome": "Quebra-lâminas",
+          "descricao": "a principal função da Kobo (Escudo) foi manter o Kito (Espada) em cheque, e você carrega essa essência. Sempre que reduzir dano CORTANTE ou PERFURANTE a 0 ou menos, aplique o descritor QUEBRADIÇO na arma atacante. Caso aplique essa condição na mesma arma uma vez adicional na cena, ela se quebra e não pode ser usada até ser reparada.",
+          "habilidades": []
+        }
+      ],
+      "tora": [
+        {
+          "nome": "Abraço da Mãe Terra",
+          "descricao": "seu corpo é forte como o próprio abraço da Deusa. Sua habilidade “Ataque de Superioridade” recebe a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "[AMPLIAR 10+]",
+              "custo": null,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "Acerto: Você causa +1d6 pontos de dano ÁCIDO e tem vantagem na próxima vez que usar essa habilidade até final do seu próximo turno."
+            }
+          ]
+        },
+        {
+          "nome": "Conexão com o Pó",
+          "descricao": "sua proximidade com A Terra o faz mais resiliente. Você torna-se resistente a dano ÁCIDO e NECRÓTICO. Além disso, sempre que você falhar em um teste você recebe +2 no próximo teste que realizar até o final da cena.",
+          "habilidades": []
+        },
+        {
+          "nome": "A Resistência da Terra",
+          "descricao": "o corpo pode resistir àquilo em que a mente já falhou. Você pode usar a habilidade “Matéria sobre Mente”:",
+          "habilidades": [
+            {
+              "nome": "MATÉRIA SOBRE MENTE",
+              "custo": 2,
+              "descritor": ["TÔRA"],
+              "detalhes": "Alcance: pessoal. Alvo: você. Duração: instantânea. Gatilho: você é alvo de um ATAQUE contra uma Proteção mental.",
+              "efeito": "o ATAQUE é realizado contra uma Proteção física à sua escolha."
+            }
+          ]
+        },
+        {
+          "nome": "Mudando de Ares",
+          "descricao": "realizar a diáspora por diversas vezes deu-lhe experiência em grandes deslocamentos. Seu deslocamento não pode ser reduzido (exceto por condições) e você pode realizar uma ação adicional por rodada em Cenas de Exploração e Desafio.",
+          "habilidades": []
+        }
+      ],
+      "urodelo": [
+        {
+          "nome": "Elemento Aprimorado",
+          "descricao": "você torna-se imune ao elemento de sua herança. Além disso, recebe outra herança de urodelo.",
+          "habilidades": []
+        },
+        {
+          "nome": "Familiaridade Alquímica",
+          "descricao": "as chamadas “armas de fogo” foram criadas a partir do funcionamento de seu sangue elemental. Seus ATAQUES com essas armas recebem a seguinte modificação:",
+          "habilidades": [
+            {
+              "nome": "+0 PE [MUDA]",
+              "custo": 0,
+              "descritor": [],
+              "detalhes": "",
+              "efeito": "Especial: muda o tipo de dano para o mesmo da sua resistência elemental de “Coração Elemental”."
+            }
+          ]
+        },
+        {
+          "nome": "Patinhas Grudentas",
+          "descricao": "Você ignora todo movimento forçado e recebe velocidade de escalada igual ao seu deslocamento. Enquanto você estiver escalando você é considerado Protegido contra \"Ataques a Distância\".",
+          "habilidades": []
+        },
+        {
+          "nome": "Regeneração Acelerada",
+          "descricao": "você aumenta a quantidade de pontos de vida que recupera por meio de habilidades e magias com o descritor CURA em +1d6.",
+          "habilidades": []
+        }
+      ],
+      "walshie": [
+        {
+          "nome": "Guarda do Rebanho",
+          "descricao": "treinadas para cuidar de rebanhos de ovelhas, as alpacas (e você) sabem como e quando agir. Você pode fazer testes de iniciativa com SAB em vez de DES. Além disso, você não pode ser surpreendido.",
+          "habilidades": []
+        },
+        {
+          "nome": "Hábitos Alpaquenses",
+          "descricao": "alpacas de Walsh conseguem ficar em guarda por mais de um dia sem precisar descansar, e você aprendeu com elas. Você considera que está acordado e atento durante Cenas de Descanso, além de recuperar pontos de vida e pontos de ênfase adicionais igual ao seu bônus de proficiência após o descanso.",
+          "habilidades": []
+        },
+        {
+          "nome": "Sorte Favorece os Atrevidos",
+          "descricao": "sempre que realizar um teste em que você não é proficiente, pode refazê-lo caso o resultado do dado seja igual ou menor que 5, mas deve ficar com o segundo resultado.",
+          "habilidades": []
+        },
+        {
+          "nome": "Terrenos (des)Conhecidos",
+          "descricao": "chegar em um novo terreno é abrir-se para a descoberta. Sempre que chegar em um local que ainda não tenha visitado, seu deslocamento é aumentado em +3m (2 q) até o final da cena. Caso seja uma Cena de Exploração, você pode realizar uma função adicional na primeira rodada.",
+          "habilidades": []
+        }
+      ]
+    },
+    "porMaldicao": {
+      "aetherideo": [
+        {
+          "nome": "Manifestação Arcana",
+          "descricao": "seu sangue manifesta poderes arcanos. Você aprende um truque mágico e uma magia de camada superficial. Você recebe uma magia de camada superficial adicional para cada outro talento de aetherídeo que tiver.",
+          "habilidades": []
+        },
+        {
+          "nome": "Protuberâncias Cristalizadas",
+          "descricao": "seus ataques desarmados causam dano do tipo ENERGÉTICO e +1d4 pontos de dano. Além disso, você causa +1d4 pontos de dano com esses ataques para cada outro talento de aetherídeo que tiver.",
+          "habilidades": []
+        },
+        {
+          "nome": "Sinapses Naturais",
+          "descricao": "você consegue alterar os efeitos das magias de seus aliados de uma forma peculiar. Você pode usar a habilidade “Propagador Arcano”.",
+          "habilidades": [
+            {
+              "nome": "PROPAGADOR ARCANO",
+              "custo": 1,
+              "descritor": ["AETHERÍDEO", "MÁGICO"],
+              "detalhes": "Alcance: 9m. Alvo: você. Duração: instantânea. Gatilho: um aliado em alcance conjura uma magia.",
+              "efeito": "você se torna o novo ponto de origem da magia."
+            }
+          ]
+        }
+      ],
+      "gorgon": [
+        {
+          "nome": "Envenenar Corpo e Mente",
+          "descricao": "você aprende e pode conjurar os truques mágicos \"Raio Elemental (Terra)\" e \"Surto Psiônico\". A partir do 5° nível, você considera como se pudesse conjurar magias de camada rasa para modificar esses truques mágicos.",
+          "habilidades": []
+        },
+        {
+          "nome": "Até o Último Suspiro",
+          "descricao": "existe algo que continua te impulsionando a lutar, independente do que está acontecendo. No começo do seu turno, se os seus pontos de vida atuais forem iguais ou menores do que seu nível você recebe 1 ponto de catarse.",
+          "habilidades": []
+        },
+        {
+          "nome": "Força dos Cardumes",
+          "descricao": "enquanto estiver lutando em maior número, você recebe +1 na sua Proteção de DES, +2 em seus testes de ATAQUE e eles causam +1d4 pontos de dano VENENOSO adicionais.",
+          "habilidades": []
+        }
+      ],
+      "retornado": [
+        {
+          "nome": "Calcificado",
+          "descricao": "seus ossos são extremamente resistentes. Você se torna resistente a dano CORTANTE e PERFURANTE.",
+          "habilidades": []
+        },
+        {
+          "nome": "Memórias da Vida Passada",
+          "descricao": "apesar de não lembrar tudo de sua vida passada, algumas memórias podem inundar sua mente em momentos de crise. Você pode usar a habilidade “Fluxo de Memórias Passadas”.",
+          "habilidades": [
+            {
+              "nome": "FLUXO DE MEMÓRIAS PASSADAS",
+              "custo": 2,
+              "descritor": ["RETORNADO"],
+              "detalhes": "Alcance: pessoal. Duração: uma cena. Alvo: você.",
+              "efeito": "você se torna proficiente em uma perícia, arma, armadura, escudo ou Proteção à sua escolha. Especial: você só pode usar essa habilidade uma vez por cena."
+            }
+          ]
+        },
+        {
+          "nome": "Pilha de Ossos",
+          "descricao": "você aprendeu a ganhar mais controle sobre a força mística que mantém seus ossos conectados e precisa de apenas 4 horas de descanso para receber os benefícios de um Descanso Longo, mantendo-se acordado durante esse processo. Além disso, você pode usar a habilidade “Virar uma Pilha de Ossos”:",
+          "habilidades": [
+            {
+              "nome": "VIRAR UMA PILHA DE OSSOS",
+              "custo": 2,
+              "descritor": ["RETORNADO"],
+              "detalhes": "Alcance: pessoal. Duração: até o começo do seu próximo turno. Gatilho: você é alvo de um ataque contra uma de suas Proteções. Alvo: você.",
+              "efeito": "o ataque é feito com desvantagem. Em seguida, você cai no chão, transformando-se em uma pilha de ossos. Enquanto estiver assim, você está Caído e Desprotegido. Por fim, pode usar uma quantidade de dados de vida igual ao seu bônus de proficiência. Ao invés de curar, você recebe pontos de vida temporários. Especial: você só pode usar essa habilidade uma vez por descanso."
+            }
+          ]
+        }
+      ],
+      "sombrio": [
+        {
+          "nome": "Cauda Funcional",
+          "descricao": "sua cauda pode ser usada para fazer ações livres, como se você estivesse com uma das mãos livres. Além disso, pode usá-la para empunhar um escudo leve, ou uma arma com o descritor LEVE (inclusive para realizar ataques com arma secundária).",
+          "habilidades": []
+        },
+        {
+          "nome": "Contrato das Sombras",
+          "descricao": "você pode realizar um ritual de 5 minutos envolvendo outra criatura e gastar 3 pontos de ênfase. Ao final do ritual, a outra criatura envolvida precisa determinar um curso de ação (proteger a vila, salvar Douglas...) e gastar 1 Ponto de Sombra. Se o fizer, você recebe 1 Ponto de Sombra temporário para usar em prol do curso de ação escolhido pela criatura. Só é possível ter um Ponto de Sombra temporário por vez.",
+          "habilidades": []
+        },
+        {
+          "nome": "Manto da Mãe Sombra",
+          "descricao": "sempre que uma criatura num raio de 18 m (12 q) gastar um Ponto de Sombra, você se sente Inspirado até o final do seu próximo turno. Enquanto estiver inspirado dessa maneira, tem vantagem em todos os testes e causa +1d6 pontos de dano ESPECIAL.",
+          "habilidades": []
+        }
+      ]
+    }
+  }
+}
