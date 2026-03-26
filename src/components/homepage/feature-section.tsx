@@ -23,7 +23,7 @@ const features = [
 ]
 function FeatureSection() {
   return (
-    <section id="feature-section bg-background">
+    <section id="feature-section">
       <div className="container-main py-20 flex flex-col">
         <div className="items-center justify-center text-center">
           <p className="text-primary text-sm uppercase tracking-wide">
