@@ -49,10 +49,9 @@
     ],
 
     "habilidades": []
-  }
-},
+  },
 
-"agouro": {
+  "agouro": {
   "nome": "Agouro",
   "descricao": "Você sobreviveu a um ritual macabro que deixou marcas terríveis em seu corpo e alma. Essas marcas chamam atenção, despertam medo e curiosidade, mas também lhe concedem resistência e poder. O culto ou entidade que o marcou ainda ecoa em sua vida, para o bem ou para o mal.",
 
@@ -1007,5 +1006,6 @@
 
   "habilidades": []
 }
-
 }
+}
+
