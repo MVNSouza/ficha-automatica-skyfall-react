@@ -9,31 +9,60 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { EyeIcon, EyeOffIcon } from "lucide-react"
+import { EyeIcon, EyeOffIcon, AlertCircle } from "lucide-react"
 import { useState } from "react"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@/firebase"
 import { useNavigate } from "react-router"
 
+// Mensagens amigáveis para cada erro do Firebase
+const firebaseErrors: Record<string, string> = {
+  "auth/user-not-found": "Nenhuma conta encontrada com este e-mail.",
+  "auth/wrong-password": "Senha incorreta. Verifique e tente novamente.",
+  "auth/invalid-credential": "E-mail ou senha inválidos.", // erro unificado nas versões recentes do Firebase
+  "auth/invalid-email": "Formato de e-mail inválido.",
+  "auth/too-many-requests":
+    "Muitas tentativas. Aguarde alguns minutos e tente novamente.",
+  "auth/user-disabled": "Esta conta foi desativada.",
+}
+
 function LoginPage() {
-  const [showPass, setShowPass] = useState<boolean>(false)
+  const navigate = useNavigate()
+
+  const [showPass, setShowPass] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const navigate = useNavigate() // ✅ hook do react-router
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
 
-  const onSubmit = async (e: React.SubmitEvent) => {
+  const clearFields = () => {
+    setEmail("")
+    setPassword("")
+  }
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError("")
+    setLoading(true)
 
-    await signInWithEmailAndPassword(auth, email, password) // ✅ login, não cadastro
-      .then((userCredential) => {
-        const user = userCredential.user
-        console.log(user)
-        navigate("/dashboard") // ✅ redireciona após login
-      })
-      .catch((error) => {
-        console.log(error.code, error.message)
-      })
-  } // ✅ fecha o onSubmit corretamente
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      )
+      console.log(userCredential.user)
+      navigate("/dashboard")
+    } catch (err: any) {
+      // Limpa os campos em caso de erro
+      clearFields()
+
+      // Exibe mensagem amigável ou fallback genérico
+      setError(firebaseErrors[err.code] ?? "Ocorreu um erro. Tente novamente.")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <div className="flex-1 bg">
@@ -49,22 +78,32 @@ function LoginPage() {
           </CardHeader>
 
           <CardContent>
+            {/* Banner de erro — só aparece quando há mensagem */}
+            {error && (
+              <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3 mb-4 text-red-700 dark:border-red-800 dark:bg-red-950 dark:text-red-400">
+                <AlertCircle className="size-4 mt-0.5 shrink-0" />
+                <p className="text-sm">{error}</p>
+              </div>
+            )}
+
             <form className="flex flex-col gap-4" onSubmit={onSubmit}>
-              {" "}
-              {/* ✅ onSubmit no form */}
               <div className="flex flex-col gap-2">
                 <Label htmlFor="email">E-mail</Label>
                 <Input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="seu.nome@ifce.edu.br"
+                  placeholder="exemplo@email.com"
                   required
-                  className="h-11 bg-background"
+                  className={`h-11 bg-background ${error ? "border-red-400 focus-visible:ring-red-400" : ""}`}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)} // ✅ onChange
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                    setError("")
+                  }}
                 />
               </div>
+
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Senha</Label>
@@ -79,13 +118,16 @@ function LoginPage() {
                     type={showPass ? "text" : "password"}
                     placeholder="Digite sua senha"
                     required
-                    className="h-11 bg-background"
+                    className={`h-11 bg-background ${error ? "border-red-400 focus-visible:ring-red-400" : ""}`}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)} // ✅ onChange
+                    onChange={(e) => {
+                      setPassword(e.target.value)
+                      setError("")
+                    }}
                   />
                   <button
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary cursor-pointer"
                     type="button"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary cursor-pointer"
                     onClick={() => setShowPass((prev) => !prev)}
                   >
                     {showPass ? (
@@ -96,8 +138,9 @@ function LoginPage() {
                   </button>
                 </div>
               </div>
-              <Button type="submit" className="mt-2 h-11">
-                Entrar
+
+              <Button type="submit" className="mt-2 h-11" disabled={loading}>
+                {loading ? "Entrando…" : "Entrar"}
               </Button>
             </form>
           </CardContent>
