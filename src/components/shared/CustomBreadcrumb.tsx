@@ -18,7 +18,7 @@ const steps = [
   "Classe",
 ]
 
-export function CustomBreadcrumb({ currentStep = 0, onStepChange, } : { currentStep?: number; onStepChange: (step:number) => void }) {
+export function CustomBreadcrumb({ currentStep = 0, _onStepChange, } : { currentStep?: number; _onStepChange: (step:number) => void }) {
   return (
     <Breadcrumb className="px-4 py-3 rounded-xl">
       <BreadcrumbList className="flex items-center gap-2">
