@@ -141,12 +141,12 @@ function RegisterPage() {
 
               {/* E-mail */}
               <div className="flex flex-col gap-2">
-                <Label htmlFor="email">E-mail institucional</Label>
+                <Label htmlFor="email">E-mail</Label>
                 <Input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="seu.nome@ifce.edu.br"
+                  placeholder="example@email.com"
                   required
                   className="h-11 bg-background"
                   value={email}
