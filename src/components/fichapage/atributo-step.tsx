@@ -63,7 +63,7 @@ export function AtributosStep({ onNext }: Props) {
     if (valorSelecionado === null || indiceSelecionadoAtual === null) return
 
     // Devolve o índice anterior se o card já tinha um valor
-    const anteriorIndex = Object.entries(atribuicao).find(([k]) => k === key)
+    // const anteriorIndex = Object.entries(atribuicao).find(([k]) => k === key)
     // Se o card já tem valor, devolve o índice ao pool
     const novoIndices = new Set(indicesSelecionados)
 
@@ -73,9 +73,9 @@ export function AtributosStep({ onNext }: Props) {
     )
     if (entradaAnterior) {
       // Encontra o índice original do valor que estava no card
-      for (const i of novoIndices) {
-        // não temos como saber qual índice era — simplificação: limpa só se reatribuindo
-      }
+      // for (const i of novoIndices) {
+      //   // não temos como saber qual índice era — simplificação: limpa só se reatribuindo
+      // }
     }
 
     novoIndices.add(indiceSelecionadoAtual)
