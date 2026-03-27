@@ -1,7 +1,3 @@
-Aqui está um **README.md completo e profissional** para o seu projeto, já pronto pra colar no GitHub 👇
-
----
-
 # 📄 Ficha Automática Skyfall (React)
 
 Sistema web para criação automática de fichas do RPG **Skyfall**, desenvolvido com foco em praticidade, agilidade e experiência do usuário.
