@@ -38,10 +38,10 @@ function Navbar() {
           </li>
         </ul>
         <div>
-          <Button variant={"ghost"} size="lg" asChild>
+          <Button variant={"ghost"} size="lg" className="text-lg" asChild>
             <Link to="/login">Entrar</Link>
           </Button>
-          <Button size={"lg"} asChild>
+          <Button size={"lg"} className="text-lg" asChild>
             <Link to={"/register"}>Criar conta</Link>
           </Button>
         </div>

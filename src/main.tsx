@@ -12,9 +12,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: App,
-    children:[
+    children: [
       {
-        index: true, Component: HomePage
+        index: true,
+        Component: HomePage,
       },
       {
         path: "/login", Component: LoginPage
@@ -25,11 +26,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard", Component: DashboardPage
       }
-    ]
+    ],
   },
 ])
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,
