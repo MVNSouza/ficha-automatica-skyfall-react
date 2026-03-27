@@ -8,7 +8,8 @@ import RegisterPage from "@/pages/RegisterPage"
 import DashboardPage from "@/pages/DashboardPage"
 import ProfilePage from "@/pages/ProfilePage"
 import App from "@/App"
-
+import NovaFichaPage from "@/pages/NovaFichaPage"
+import FichaPage from "@/pages/FichaPage"
 
 async function protectedLoader() {
   await auth.authStateReady()
@@ -30,8 +31,8 @@ export const router = createBrowserRouter([
         loader: protectedLoader, // bloqueia filhos se deslogado
         children: [
           { path: "/dashboard", element: <DashboardPage /> },
-          // { path: "/ficha/nova", element: <NovaFichaPage /> },
-          // { path: "/ficha/:id",  element: <FichaPage /> },
+          { path: "/ficha/nova", element: <NovaFichaPage /> },
+          { path: "/ficha/:id",  element: <FichaPage /> },
           { path: "/perfil", element: <ProfilePage /> },
         ],
       },
