@@ -6,8 +6,8 @@ function HeroSection() {
   return (
     <section className="bg-card relative" id="hero-section">
       <img
-        src="src\assets\img\skyfall-livro.png"
-        alt=""
+        src="\img\skyfall-livro.png"
+        alt="Capa Livro SkyFall"
         className="h-75 absolute left-0 top-1/2 -translate-y-1/2"
       />
       {/* <img

@@ -32,7 +32,7 @@ function Navbar() {
         <div>
           <Link to="/">
             <img
-              src="src/assets/img/logo.png"
+              src="/img/logo.png"
               alt="Logo Skyfall RPG"
               className="h-14"
             />
