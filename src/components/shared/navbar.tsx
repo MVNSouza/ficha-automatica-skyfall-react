@@ -28,7 +28,6 @@ function Navbar() {
   return (
     <header className="sticky top-0 border-b border-border z-50 bg-card/80 backdrop-blur-md">
       <nav className="container-main flex items-center justify-between py-4 px-4">
-
         {/* Brand — sempre visível */}
         <div>
           <Link to="/">
@@ -70,12 +69,18 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link to="/#feature-section" className="hover:text-primary font-semibold">
+                <Link
+                  to="/#feature-section"
+                  className="hover:text-primary font-semibold"
+                >
                   Recursos
                 </Link>
               </li>
               <li>
-                <Link to="/#skyfall-section" className="hover:text-primary font-semibold">
+                <Link
+                  to="/#skyfall-section"
+                  className="hover:text-primary font-semibold"
+                >
                   Skyfall RPG
                 </Link>
               </li>

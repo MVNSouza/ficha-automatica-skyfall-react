@@ -35,16 +35,15 @@ export function LegadoStep({ onNext, onBack }: Props) {
     setHerancasMenores([])
   }, [legadoKey])
 
-  const toggleHerancaMenor = (nome: string) => {
-    setHerancasMenores((prev) =>
-      prev.includes(nome) ? prev.filter((h) => h !== nome) : [...prev, nome]
-    )
-  }
+  // const toggleHerancaMenor = (nome: string) => {
+  //   setHerancasMenores((prev) =>
+  //     prev.includes(nome) ? prev.filter((h) => h !== nome) : [...prev, nome]
+  //   )
+  // }
 
-  // Herancas do legado separadas por tipo (assumindo que herancas têm campo "tipo": "maior" | "menor")
   const herancas = legadoAtual?.herancas ?? []
-  const herancasMaiores = herancas.filter((h: any) => h.tipo === "maior" || !h.tipo)
-  const herancasMenoresDisponiveis = herancas.filter((h: any) => h.tipo === "menor")
+  // const herancasMaiores = herancas.filter((h: any) => h.tipo === "maior" || !h.tipo)
+  // const herancasMenoresDisponiveis = herancas.filter((h: any) => h.tipo === "menor")
 
   const podeAvancar = legadoKey !== "" && herancaKey !== ""
 

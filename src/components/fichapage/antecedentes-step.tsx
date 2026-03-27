@@ -67,7 +67,7 @@ export function AntecedenteStep({ onNext, onBack }: Props) {
       {/* Direita */}
       <div className="flex flex-col gap-5">
         {/* Cards de seleção */}
-        <div className="flex flex-col gap-2 max-h-[280px] overflow-y-auto pr-1">
+        <div className="flex flex-col gap-2 max-h-70 overflow-y-auto pr-1">
           {Object.entries(antecedentes).map(([key, ant]: [string, any]) => (
             <button
               key={key}

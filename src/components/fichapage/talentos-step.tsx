@@ -114,7 +114,7 @@ export function TalentosStep({ onNext, onBack }: Props) {
         )}
 
         {/* Lista de talentos */}
-        <div className="flex flex-col gap-2 max-h-[420px] overflow-y-auto pr-1">
+        <div className="flex flex-col gap-2 max-h-105 overflow-y-auto pr-1">
           {talentosFiltrados.map(([key, talento]: [string, any]) => {
             const selecionado = selecionados.includes(key)
             return (

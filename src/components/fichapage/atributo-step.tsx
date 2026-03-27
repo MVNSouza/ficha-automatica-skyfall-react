@@ -24,17 +24,21 @@ interface Props {
 
 export function AtributosStep({ onNext }: Props) {
   const [atribuicao, setAtribuicao] = useState<Atribuicao>(() =>
-    Object.fromEntries(ATRIBUTOS.map((a) => [a.key, null]))
+    Object.fromEntries(ATRIBUTOS.map((a) => [a.key, null])),
   )
   const [valorSelecionado, setValorSelecionado] = useState<number | null>(null)
   const [fase, setFase] = useState<Fase>("alocar")
   const [bonusAtributo, setBonusAtributo] = useState<string | null>(null)
   // Rastreia índice do valor para distinguir os dois +1
-  const [indicesSelecionados, setIndicesSelecionados] = useState<Set<number>>(new Set())
-  const [indiceSelecionadoAtual, setIndiceSelecionadoAtual] = useState<number | null>(null)
+  const [indicesSelecionados, setIndicesSelecionados] = useState<Set<number>>(
+    new Set(),
+  )
+  const [indiceSelecionadoAtual, setIndiceSelecionadoAtual] = useState<
+    number | null
+  >(null)
 
   const valoresDisponiveis = VALORES_INICIAIS.filter(
-    (_, i) => !indicesSelecionados.has(i)
+    (_, i) => !indicesSelecionados.has(i),
   )
 
   const todosAlocados = valoresDisponiveis.length === 0
@@ -59,15 +63,13 @@ export function AtributosStep({ onNext }: Props) {
     if (valorSelecionado === null || indiceSelecionadoAtual === null) return
 
     // Devolve o índice anterior se o card já tinha um valor
-    const anteriorIndex = Object.entries(atribuicao).find(
-      ([k]) => k === key
-    )
+    const anteriorIndex = Object.entries(atribuicao).find(([k]) => k === key)
     // Se o card já tem valor, devolve o índice ao pool
     const novoIndices = new Set(indicesSelecionados)
 
     // Remove índice anterior do card se existia
     const entradaAnterior = Object.entries(atribuicao).find(
-      ([k, v]) => k === key && v !== null
+      ([k, v]) => k === key && v !== null,
     )
     if (entradaAnterior) {
       // Encontra o índice original do valor que estava no card
@@ -99,7 +101,7 @@ export function AtributosStep({ onNext }: Props) {
         ATRIBUTOS.map((a) => [
           a.key,
           (atribuicao[a.key] ?? 0) + (a.key === bonusAtributo ? 1 : 0),
-        ])
+        ]),
       ) as Record<string, number>
       onNext(resultado)
     }
@@ -118,7 +120,7 @@ export function AtributosStep({ onNext }: Props) {
             "text-xs font-semibold px-3 py-1 rounded-full border transition-all",
             fase === "alocar"
               ? "bg-primary text-primary-foreground border-primary"
-              : "bg-muted text-muted-foreground border-border"
+              : "bg-muted text-muted-foreground border-border",
           )}
         >
           1. Alocar valores
@@ -129,7 +131,7 @@ export function AtributosStep({ onNext }: Props) {
             "text-xs font-semibold px-3 py-1 rounded-full border transition-all",
             fase === "bonus"
               ? "bg-primary text-primary-foreground border-primary"
-              : "bg-muted text-muted-foreground border-border"
+              : "bg-muted text-muted-foreground border-border",
           )}
         >
           2. Escolher bônus +1
@@ -138,14 +140,11 @@ export function AtributosStep({ onNext }: Props) {
 
       {/* Grid de cards */}
       <div className="grid grid-cols-3 gap-3">
-        {ATRIBUTOS.map(({ key, label }) => {
+        {ATRIBUTOS.map(({ key }) => {
           const valor = atribuicao[key]
-          const protecao = 10 + (valor ?? 0)
           const isSelecionado = valorSelecionado !== null && fase === "alocar"
           const isBonus = bonusAtributo === key
-          const valorFinal = valor !== null
-            ? valor + (isBonus ? 1 : 0)
-            : null
+          const valorFinal = valor !== null ? valor + (isBonus ? 1 : 0) : null
 
           return (
             <button
@@ -155,8 +154,8 @@ export function AtributosStep({ onNext }: Props) {
                 fase === "alocar"
                   ? valorSelecionado === null
                   : fase === "bonus"
-                  ? valor === null || (valor + 1 > 3 && key !== bonusAtributo)
-                  : false
+                    ? valor === null || (valor + 1 > 3 && key !== bonusAtributo)
+                    : false
               }
               className={cn(
                 "group relative flex flex-col rounded-xl border-2 overflow-hidden",
@@ -166,13 +165,21 @@ export function AtributosStep({ onNext }: Props) {
                   ? "bg-card border-border"
                   : "bg-card border-border",
                 // selecionável
-                isSelecionado && valor === null && "border-primary/50 cursor-pointer hover:border-primary hover:scale-105",
-                isSelecionado && valor !== null && "cursor-pointer hover:border-primary/50 hover:scale-105",
+                isSelecionado &&
+                  valor === null &&
+                  "border-primary/50 cursor-pointer hover:border-primary hover:scale-105",
+                isSelecionado &&
+                  valor !== null &&
+                  "cursor-pointer hover:border-primary/50 hover:scale-105",
                 // bonus
-                fase === "bonus" && valor !== null && valor < 3 && "cursor-pointer hover:border-primary hover:scale-105",
-                isBonus && "border-primary shadow-[0_0_16px_2px] shadow-primary/30",
+                fase === "bonus" &&
+                  valor !== null &&
+                  valor < 3 &&
+                  "cursor-pointer hover:border-primary hover:scale-105",
+                isBonus &&
+                  "border-primary shadow-[0_0_16px_2px] shadow-primary/30",
                 // desabilitado
-                "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
               )}
             >
               {/* Header */}
@@ -190,17 +197,17 @@ export function AtributosStep({ onNext }: Props) {
                     valorFinal === null
                       ? "text-muted-foreground/40"
                       : valorFinal > 0
-                      ? "text-primary"
-                      : valorFinal < 0
-                      ? "text-destructive"
-                      : "text-foreground"
+                        ? "text-primary"
+                        : valorFinal < 0
+                          ? "text-destructive"
+                          : "text-foreground",
                   )}
                 >
                   {valorFinal === null
                     ? "—"
                     : valorFinal > 0
-                    ? `+${valorFinal}`
-                    : valorFinal}
+                      ? `+${valorFinal}`
+                      : valorFinal}
                 </span>
               </div>
 
@@ -245,8 +252,8 @@ export function AtributosStep({ onNext }: Props) {
                     usado
                       ? "opacity-25 cursor-not-allowed border-border bg-muted text-muted-foreground line-through"
                       : ativo
-                      ? "border-primary bg-primary text-primary-foreground scale-110 shadow-lg"
-                      : "border-border bg-card text-foreground hover:border-primary/50 hover:scale-105 cursor-pointer"
+                        ? "border-primary bg-primary text-primary-foreground scale-110 shadow-lg"
+                        : "border-border bg-card text-foreground hover:border-primary/50 hover:scale-105 cursor-pointer",
                   )}
                 >
                   {valor > 0 ? `+${valor}` : valor}
@@ -259,13 +266,19 @@ export function AtributosStep({ onNext }: Props) {
 
       {fase === "bonus" && (
         <p className="text-xs text-muted-foreground">
-          Clique em um atributo para receber <strong>+1</strong>. Nenhum atributo pode ultrapassar +3.
+          Clique em um atributo para receber <strong>+1</strong>. Nenhum
+          atributo pode ultrapassar +3.
         </p>
       )}
 
       {/* Rodapé */}
       <div className="flex items-center justify-between pt-2 border-t border-border">
-        <Button variant="ghost" size="sm" onClick={handleReset} className="gap-2 text-muted-foreground">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleReset}
+          className="gap-2 text-muted-foreground"
+        >
           <RotateCcw className="size-3.5" />
           Reiniciar
         </Button>
