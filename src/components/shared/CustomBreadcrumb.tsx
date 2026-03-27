@@ -1,3 +1,5 @@
+// eslint-disable @typescript-eslint/no-unused-vars
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,14 +18,14 @@ const steps = [
   "Classe",
 ]
 
-export function CustomBreadcrumb({ currentStep = 0, onStepChange }) {
+export function CustomBreadcrumb({ currentStep = 0, onStepChange, } : { currentStep?: number; onStepChange: (step:number) => void }) {
   return (
     <Breadcrumb className="px-4 py-3 rounded-xl">
       <BreadcrumbList className="flex items-center gap-2">
 
         {steps.map((step, index) => (
           <BreadcrumbItem key={`${step}-${index}`} className="flex items-center">
-            <button
+            <button onClick={() => onStepChange(index)}
               className={`
                 bg-primary-emphasis text-white px-4 py-2 rounded-lg
                 transition-all duration-200
