@@ -1,5 +1,6 @@
 // src/pages/FichaPage.tsx
 import { useEffect, useState } from "react"
+import { SetNome } from "@/components/shared/SetNome"
 import { useParams, useNavigate } from "react-router"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "@/firebase"
@@ -95,9 +96,10 @@ export default function FichaPage() {
             <ArrowLeft className="size-5" />
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">
-              {ficha.nome || <span className="text-muted-foreground italic">Sem nome</span>}
-            </h1>
+            <SetNome fichaId={ficha.id}
+              nomeAtual={ficha.nome}
+              onUpdate={(novoNome) =>
+              setFicha((prev: any) => ({ ...prev, nome: novoNome })) }/>
             <p className="text-muted-foreground text-sm mt-1">
               Jogado por <strong>{ficha.nomeJogador}</strong>
               {ficha.pronomes && <span className="ml-2 text-xs">({ficha.pronomes})</span>}
@@ -207,4 +209,3 @@ export default function FichaPage() {
     </div>
   )
 }
-
