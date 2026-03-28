@@ -109,7 +109,7 @@ export default function NovaFichaPage() {
   return (
     <div className="min-h-screen bg-background">
       <div className="flex justify-center py-6 border-b border-border bg-card/50">
-        <CustomBreadcrumb currentStep={step} />
+        <CustomBreadcrumb currentStep={step} _onStepChange={setStep}/>
       </div>
 
       <div className="container-main px-4 py-10 max-w-6xl mx-auto">
