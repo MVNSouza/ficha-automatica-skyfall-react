@@ -116,7 +116,14 @@ export default function NovaFichaPage() {
         {step === 0 && <AtributosStep   onNext={handleAtributos} />}
         {step === 1 && <LegadoStep      onNext={handleLegado}    onBack={() => setStep(0)} />}
         {step === 2 && <MaldicaoStep    onNext={handleMaldicao}  onBack={() => setStep(1)} />}
-        {step === 3 && <TalentosStep    onNext={handleTalentos}  onBack={() => setStep(2)} />}
+        {step === 3 && (
+          <TalentosStep
+            onNext={handleTalentos}
+            onBack={() => setStep(2)}
+            legado={dados.legado ?? ""}
+            maldicao={dados.maldicao}
+          />
+        )}
         {step === 4 && <AntecedenteStep onNext={handleAntecedente} onBack={() => setStep(3)} />}
         {step === 5 && <ClasseStep      onSubmit={handleClasse}  onBack={() => setStep(4)} salvando={salvando} />}
       </div>

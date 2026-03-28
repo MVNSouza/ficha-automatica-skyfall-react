@@ -6,8 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { ChevronRight, ChevronLeft, Star, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-// Ajuste o acesso conforme a estrutura real do talentos.json
-const talentos: Record<string, any> = (talentosData as any).talentos ?? talentosData
+const talentosBrutos = (talentosData as any).talentos ?? talentosData
+
 
 const MAX_TALENTOS = 1 // nível 1 começa com 1 talento
 
@@ -18,28 +18,50 @@ export interface TalentosDados {
 interface Props {
   onNext: (dados: TalentosDados) => void
   onBack: () => void
+  legado: string
+  maldicao?: string
 }
 
-export function TalentosStep({ onNext, onBack }: Props) {
+export function TalentosStep({ onNext, onBack, legado, maldicao }: Props) {
   const [selecionados, setSelecionados] = useState<string[]>([])
   const [filtro, setFiltro] = useState<string>("todos")
 
-  const tipos = ["todos", ...Array.from(
-    new Set(Object.values(talentos).map((t: any) => t.tipo ?? t.categoria ?? "geral"))
-  )]
+  const [aberto, setAberto] = useState<string | null>(null)
 
-  const talentosFiltrados = Object.entries(talentos).filter(([, t]: [string, any]) => {
-    const tipo = t.tipo ?? t.categoria ?? "geral"
-    return filtro === "todos" || tipo === filtro
+const legadoKey = legado?.toLowerCase().trim()
+const maldicaoKey = maldicao?.toLowerCase().trim()
+
+const talentosRaca = talentosBrutos.porRaca?.[legadoKey] ?? []
+const talentosMaldicao =
+  maldicaoKey && maldicaoKey !== "nenhuma"
+    ? talentosBrutos.porMaldicao?.[maldicaoKey] ?? []
+    : []
+
+const talentos = [...talentosRaca, ...talentosMaldicao]
+
+console.log("talentosRaca:", talentosRaca)
+console.log("talentosMaldicao:", talentosMaldicao)
+
+const tipos = ["todos", ...Array.from(
+  new Set(talentos.map((t: any) => t.tipo ?? t.categoria ?? "geral"))
+)]
+
+const talentosFiltrados = talentos.filter((t: any) => {
+  const tipo = t.tipo ?? t.categoria ?? "geral"
+  return filtro === "todos" || tipo === filtro
+})
+
+  const toggle = (nome: string) => {
+  setSelecionados((prev) => {
+    if (prev.includes(nome)) return prev.filter((k) => k !== nome)
+    if (prev.length >= MAX_TALENTOS) return [nome]
+    return [...prev, nome]
   })
+}
 
-  const toggle = (key: string) => {
-    setSelecionados((prev) => {
-      if (prev.includes(key)) return prev.filter((k) => k !== key)
-      if (prev.length >= MAX_TALENTOS) return [...prev.slice(1), key] // substitui o anterior
-      return [...prev, key]
-    })
-  }
+const toggleAccordion = (nome: string) => {
+  setAberto((prev) => (prev === nome ? null : nome))
+}
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 items-start">
@@ -80,9 +102,9 @@ export function TalentosStep({ onNext, onBack }: Props) {
               Talentos selecionados ({selecionados.length}/{MAX_TALENTOS})
             </p>
             <div className="flex flex-wrap gap-2">
-              {selecionados.map((key) => (
-                <Badge key={key} className="text-xs">
-                  {talentos[key]?.nome ?? key}
+              {selecionados.map((nome) => (
+                <Badge key={nome}>
+                  {nome}
                 </Badge>
               ))}
             </div>
@@ -114,49 +136,80 @@ export function TalentosStep({ onNext, onBack }: Props) {
         )}
 
         {/* Lista de talentos */}
-        <div className="flex flex-col gap-2 max-h-105 overflow-y-auto pr-1">
-          {talentosFiltrados.map(([key, talento]: [string, any]) => {
-            const selecionado = selecionados.includes(key)
-            return (
-              <button
-                key={key}
-                onClick={() => toggle(key)}
-                className={cn(
-                  "text-left p-3 rounded-xl border-2 transition-all duration-200",
-                  selecionado
-                    ? "border-primary bg-primary/10 shadow-[0_0_12px_1px] shadow-primary/20"
-                    : "border-border bg-card hover:border-primary/40 cursor-pointer"
-                )}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex-1">
-                    <p className="font-semibold text-sm text-foreground">{talento.nome ?? key}</p>
-                    {talento.tipo && (
-                      <p className="text-[10px] text-primary font-medium uppercase tracking-wider mt-0.5">
-                        {talento.tipo}
-                      </p>
-                    )}
-                    {talento.descricao && (
-                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{talento.descricao}</p>
-                    )}
-                    {talento.prerequisito && (
-                      <p className="text-[10px] text-amber-500 mt-1">
-                        Pré-req: {talento.prerequisito}
-                      </p>
-                    )}
-                  </div>
-                  {selecionado && <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />}
-                </div>
-              </button>
-            )
-          })}
-        </div>
+<div className="flex flex-col gap-2 max-h-105 overflow-y-auto pr-1">
+  {talentosFiltrados.map((talento) => {
+    const selecionado = selecionados.includes(talento.nome)
 
+    return (
+      <button
+        key={talento.nome}
+        onClick={() => {
+          toggle(talento.nome)
+          toggleAccordion(talento.nome)
+        }}
+        className={cn(
+          "text-left p-3 rounded-xl border-2 transition-all duration-200",
+          selecionado
+            ? "border-primary bg-primary/10 shadow-[0_0_12px_1px] shadow-primary/20"
+            : "border-border bg-card hover:border-primary/40 cursor-pointer"
+        )}
+      >
+        <div className="flex items-start justify-between gap-2">
+
+          <div className="flex-1">
+            <p className="font-semibold text-sm text-foreground">
+              {talento.nome}
+            </p>
+
+            {talento.tipo && (
+              <p className="text-[10px] text-primary font-medium uppercase tracking-wider mt-0.5">
+                {talento.tipo}
+              </p>
+            )}
+
+            {/* ACCORDION */}
+            <div
+              className={cn(
+                "grid transition-all duration-300 ease-in-out",
+                aberto === talento.nome
+                  ? "grid-rows-[1fr] opacity-100 mt-2"
+                  : "grid-rows-[0fr] opacity-0"
+              )}
+            >
+              <div className="overflow-hidden">
+                <p className="text-xs text-muted-foreground">
+                  {talento.descricao}
+                </p>
+
+                {talento.prerequisito && (
+                  <p className="text-xs text-amber-500 mt-2">
+                    Pré-requisito: {talento.prerequisito}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {selecionado && (
+            <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
+          )}
+
+        </div>
+      </button>
+    )
+  })}
+</div>
         {/* Rodapé */}
         <div className="flex items-center justify-between pt-2 border-t border-border">
-          <Button variant="ghost" size="sm" onClick={onBack} className="gap-2 text-muted-foreground">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onBack}
+            className="gap-2 text-muted-foreground"
+          >
             <ChevronLeft className="size-3.5" /> Voltar
           </Button>
+
           <Button
             onClick={() => onNext({ talentos: selecionados })}
             disabled={selecionados.length === 0}
@@ -165,6 +218,7 @@ export function TalentosStep({ onNext, onBack }: Props) {
             Próxima etapa <ChevronRight className="size-4" />
           </Button>
         </div>
+
       </div>
     </div>
   )
