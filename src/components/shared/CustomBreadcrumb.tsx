@@ -1,13 +1,13 @@
+// eslint-disable @typescript-eslint/no-unused-vars
+
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
 import { ArrowBigRightDash } from "lucide-react"
-import { Link } from "react-router-dom"
 
 const steps = [
   "Atributos",
@@ -18,14 +18,23 @@ const steps = [
   "Classe",
 ]
 
-export function CustomBreadcrumb({ currentStep = 0 }) {
+export function CustomBreadcrumb({
+  currentStep = 0,
+  _onStepChange,
+}: {
+  currentStep?: number
+  _onStepChange: (step: number) => void
+}) {
   return (
     <Breadcrumb className="px-4 py-3 rounded-xl">
       <BreadcrumbList className="flex items-center gap-2">
-
         {steps.map((step, index) => (
-          <BreadcrumbItem key={`${step}-${index}`} className="flex items-center">
-            <BreadcrumbLink asChild
+          <BreadcrumbItem
+            key={`${step}-${index}`}
+            className="flex items-center"
+          >
+            <button
+              onClick={() => _onStepChange(index)}
               className={`
                 bg-primary-emphasis text-white px-4 py-2 rounded-lg
                 transition-all duration-200
@@ -33,14 +42,12 @@ export function CustomBreadcrumb({ currentStep = 0 }) {
                 ${index === currentStep ? "bg-primary" : ""}
               `}
             >
-              <Link to={`/${step}`}>
-                {step}
-              </Link>
-            </BreadcrumbLink>
+              {step}
+            </button>
 
             {index < steps.length - 1 && (
               <BreadcrumbSeparator>
-                <ArrowBigRightDash className="text-primary-emphasis"/>
+                <ArrowBigRightDash className="text-primary-emphasis" />
               </BreadcrumbSeparator>
             )}
           </BreadcrumbItem>
