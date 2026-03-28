@@ -146,7 +146,7 @@ export default function ProfilePage() {
                 type="email"
                 value={newEmail}
                 onChange={(e) => setNewEmail(e.target.value)}
-                placeholder="novo@ifce.edu.br"
+                placeholder="novo@email.com"
                 className="h-11 bg-background"
               />
             </div>
