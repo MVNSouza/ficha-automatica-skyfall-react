@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { useUserProfile } from "@/hooks/useUserProfile"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertCircle, CheckCircle2 } from "lucide-react"
+import { AlertCircle, CheckCircle2, CircleChevronLeft } from "lucide-react"
 
 export default function ProfilePage() {
   const { profile, loading, updateBasicInfo, changeEmail, changePassword } =
@@ -18,6 +19,8 @@ export default function ProfilePage() {
     type: "success" | "error"
     msg: string
   } | null>(null)
+
+  const navigate = useNavigate();
 
   useState(() => {
     if (profile) {
@@ -79,7 +82,14 @@ export default function ProfilePage() {
 
   return (
     <div className="container-main flex flex-col gap-6 py-10 max-w-lg mx-auto min-w-120">
-      <h1 className="text-2xl font-bold text-foreground">Minha Conta</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold text-foreground">Minha Conta</h1>
+
+        <Button variant="default" className="gap-2" onClick={() => navigate("/dashboard")}>
+          <CircleChevronLeft className="size-4" />
+            Voltar
+        </Button>
+      </div>
 
       {/* Feedback global */}
       {feedback && (
